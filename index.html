@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Khám phá phong cách của bạn</title>
+<title>Discover Your Style</title>
 
 <style>
     * {
@@ -13,21 +13,19 @@
 
     body {
         margin: 0;
-        padding: 20px;
+        padding: 0;
         font-family: Arial, Helvetica, sans-serif;
-        background: #f4f5f7;
-        color: #222;
+        background: #f4f6f9;
+        color: #172033;
     }
 
     .container {
         max-width: 1100px;
         margin: 0 auto;
-        background: #ffffff;
-        border-radius: 14px;
-        padding: 32px;
-        box-shadow: 0 4px 18px rgba(0,0,0,0.08);
+        padding: 35px 20px 60px;
     }
 
+    /* HEADER */
     .header {
         text-align: center;
         margin-bottom: 30px;
@@ -35,115 +33,111 @@
 
     .header h1 {
         margin: 0 0 12px;
-        font-size: 32px;
-        color: #1f2937;
+        font-size: 38px;
+        letter-spacing: 1px;
+        color: #0b2948;
     }
 
     .header p {
         margin: 6px 0;
+        font-size: 18px;
         color: #555;
-        line-height: 1.5;
     }
 
+    .header .instruction-title {
+        font-size: 20px;
+        font-weight: bold;
+        margin-top: 12px;
+    }
+
+    /* INSTRUCTION */
     .instruction {
-        margin: 25px 0;
-        padding: 18px 20px;
         background: #f8f9fb;
-        border-radius: 10px;
-        border: 1px solid #e2e5e9;
+        border: 1px solid #dce1e7;
+        border-radius: 12px;
+        padding: 22px 25px;
+        margin-bottom: 30px;
     }
 
-    .instruction strong {
-        color: #111827;
+    .instruction h3 {
+        margin: 0 0 18px;
+        font-size: 19px;
     }
 
     .score-guide {
         display: flex;
         justify-content: center;
-        gap: 25px;
+        gap: 35px;
         flex-wrap: wrap;
-        margin-top: 12px;
+        font-size: 16px;
+        margin-bottom: 18px;
     }
 
-    .score-guide span {
-        font-size: 14px;
+    .score-guide strong {
+        font-size: 17px;
     }
 
-    .table-wrapper {
+    .instruction-note {
+        margin: 0;
+        font-size: 16px;
+        line-height: 1.6;
+    }
+
+    /* TABLE */
+    .quiz-table-wrapper {
+        width: 100%;
         overflow-x: auto;
+        background: white;
+        border-radius: 10px;
     }
 
     table {
         width: 100%;
         border-collapse: collapse;
-        min-width: 850px;
+        min-width: 760px;
     }
 
     th {
-        background: #f4dfc8;
-        color: #222;
-        border: 1px solid #999;
-        padding: 13px 8px;
+        background: #f3dfc8;
+        color: #172033;
+        border: 1px solid #b9b9b9;
+        padding: 14px 10px;
+        font-size: 18px;
         text-align: center;
-        font-size: 16px;
     }
 
     td {
-        border: 1px solid #b7b7b7;
-        padding: 12px 10px;
+        border: 1px solid #c5c5c5;
+        padding: 14px 10px;
         text-align: center;
-        vertical-align: middle;
+        background: #fff;
     }
 
-    .word {
-        font-size: 16px;
+    .item-name {
+        display: block;
+        font-size: 17px;
         margin-bottom: 10px;
-        min-height: 20px;
+        min-height: 22px;
     }
 
-    .score-select {
-        width: 100%;
-        max-width: 110px;
-        padding: 8px 10px;
+    select {
+        width: 125px;
+        max-width: 100%;
+        padding: 9px 10px;
+        font-size: 16px;
         border: 1px solid #aaa;
-        border-radius: 6px;
+        border-radius: 7px;
         background: white;
-        font-size: 15px;
         cursor: pointer;
     }
 
-    .score-select:focus {
-        outline: 2px solid #9bbce0;
-        border-color: #4d83b8;
+    select:focus {
+        outline: none;
+        border-color: #0b6fc2;
+        box-shadow: 0 0 0 2px rgba(11,111,194,0.12);
     }
 
-    .row-total {
-        margin-top: 8px;
-        font-size: 12px;
-        color: #777;
-    }
-
-    .row-total.valid {
-        color: #16803c;
-        font-weight: bold;
-    }
-
-    .row-total.invalid {
-        color: #c62828;
-        font-weight: bold;
-    }
-
-    .total-row td {
-        background: #fafafa;
-        font-weight: bold;
-        font-size: 16px;
-    }
-
-    .group-score {
-        color: #075ca8;
-        font-size: 18px;
-    }
-
+    /* BUTTON */
     .button-area {
         text-align: center;
         margin-top: 30px;
@@ -151,149 +145,242 @@
 
     .result-button {
         border: none;
-        background: #075ca8;
+        background: #0868b8;
         color: white;
-        padding: 14px 35px;
-        border-radius: 8px;
-        font-size: 17px;
+        padding: 15px 38px;
+        border-radius: 9px;
+        font-size: 18px;
+        font-weight: bold;
         cursor: pointer;
     }
 
     .result-button:hover {
-        background: #064d8d;
+        background: #075693;
     }
 
-    .error {
-        display: none;
-        margin-top: 18px;
-        padding: 14px;
-        background: #fff0f0;
-        color: #b42318;
-        border: 1px solid #f0b5b5;
-        border-radius: 8px;
-        text-align: center;
-    }
-
+    /* RESULT */
     .result {
         display: none;
-        margin-top: 30px;
-        padding: 28px;
-        background: #f7fbff;
-        border: 1px solid #cfe2f3;
-        border-radius: 12px;
-        text-align: center;
+        margin-top: 45px;
+        background: white;
+        border-radius: 15px;
+        padding: 30px;
+        box-shadow: 0 4px 18px rgba(0,0,0,0.08);
     }
 
     .result h2 {
+        text-align: center;
         margin-top: 0;
-        color: #075ca8;
+        color: #0b2948;
+        font-size: 28px;
     }
 
-    .scores {
+    .result-subtitle {
+        text-align: center;
+        color: #666;
+        margin-bottom: 30px;
+    }
+
+    /* SCORE CARDS */
+    .score-cards {
         display: grid;
         grid-template-columns: repeat(4, 1fr);
-        gap: 12px;
-        margin-top: 20px;
+        gap: 15px;
+        margin-bottom: 35px;
     }
 
-    .score-box {
-        background: white;
-        border: 1px solid #d7e3ed;
-        border-radius: 8px;
-        padding: 16px 10px;
+    .score-card {
+        border: 1px solid #ddd;
+        border-radius: 10px;
+        padding: 18px 10px;
+        text-align: center;
+        background: #fafafa;
     }
 
-    .score-box .group-name {
-        font-size: 15px;
-        color: #555;
-    }
-
-    .score-box .number {
-        margin-top: 7px;
-        font-size: 25px;
+    .score-card .group-name {
         font-weight: bold;
-        color: #075ca8;
+        font-size: 17px;
+        margin-bottom: 8px;
     }
 
-    .winner {
-        margin-top: 25px;
+    .score-card .score-number {
+        font-size: 30px;
+        font-weight: bold;
+        color: #0868b8;
+    }
+
+    /* CHART */
+    .chart {
+        max-width: 800px;
+        margin: 0 auto;
+    }
+
+    .chart-title {
+        text-align: center;
         font-size: 21px;
         font-weight: bold;
-        color: #075ca8;
+        margin-bottom: 25px;
     }
 
-    .note {
-        margin-top: 12px;
-        color: #666;
-        font-size: 14px;
+    .bar-row {
+        display: grid;
+        grid-template-columns: 90px 1fr 55px;
+        align-items: center;
+        gap: 12px;
+        margin-bottom: 17px;
     }
 
+    .bar-label {
+        font-weight: bold;
+        text-align: right;
+    }
+
+    .bar-background {
+        height: 30px;
+        background: #e8edf2;
+        border-radius: 6px;
+        overflow: hidden;
+    }
+
+    .bar {
+        height: 100%;
+        width: 0;
+        background: #0868b8;
+        border-radius: 6px;
+        transition: width 0.8s ease;
+    }
+
+    .bar-score {
+        font-weight: bold;
+        font-size: 17px;
+    }
+
+    .highest {
+        margin-top: 35px;
+        padding: 20px;
+        background: #f3dfc8;
+        border-radius: 10px;
+        text-align: center;
+    }
+
+    .highest-title {
+        font-size: 16px;
+        color: #555;
+        margin-bottom: 6px;
+    }
+
+    .highest-group {
+        font-size: 25px;
+        font-weight: bold;
+        color: #0b2948;
+    }
+
+    /* ERROR */
+    .error {
+        display: none;
+        margin-top: 20px;
+        padding: 15px;
+        background: #fff1f1;
+        border: 1px solid #e2aaaa;
+        border-radius: 8px;
+        color: #a00000;
+        text-align: center;
+        font-weight: bold;
+    }
+
+    /* MOBILE */
     @media (max-width: 700px) {
-        body {
-            padding: 10px;
-        }
 
         .container {
-            padding: 18px;
+            padding: 22px 10px 45px;
         }
 
         .header h1 {
-            font-size: 25px;
+            font-size: 28px;
         }
 
-        .scores {
-            grid-template-columns: repeat(2, 1fr);
+        .header p {
+            font-size: 16px;
         }
 
         .score-guide {
-            display: block;
+            gap: 12px;
+            justify-content: flex-start;
         }
 
-        .score-guide span {
-            display: block;
-            margin: 5px 0;
+        .instruction {
+            padding: 18px;
+        }
+
+        .score-cards {
+            grid-template-columns: repeat(2, 1fr);
+        }
+
+        .result {
+            padding: 20px 15px;
+        }
+
+        .bar-row {
+            grid-template-columns: 65px 1fr 45px;
+            gap: 8px;
+        }
+
+        .bar-label {
+            font-size: 14px;
         }
     }
+
 </style>
 </head>
+
 
 <body>
 
 <div class="container">
 
+    <!-- HEADER -->
     <div class="header">
+
         <h1>DISCOVER YOUR STYLE</h1>
 
-        <p>
-            Hãy đặt mình vào hoàn cảnh thoải mái nhất
+        <p>Hãy đặt mình vào hoàn cảnh thoải mái nhất</p>
+
+        <p class="instruction-title">
+            Cho điểm theo hàng:
         </p>
 
-        <p>
-            <strong>Cho điểm theo hàng:</strong>
-        </p>
     </div>
 
 
+    <!-- INSTRUCTION -->
     <div class="instruction">
 
-        <strong>Nguyên tắc chấm điểm</strong>
+        <h3>Nguyên tắc chấm điểm</h3>
 
         <div class="score-guide">
+
             <span><strong>4</strong> – Giống với mình nhất</span>
+
             <span><strong>3</strong> – Gần giống</span>
+
             <span><strong>2</strong> – Ít giống hơn</span>
+
             <span><strong>1</strong> – Ít giống nhất</span>
+
         </div>
 
-        <p style="margin-bottom:0;">
+        <p class="instruction-note">
+
             Trong <strong>mỗi hàng</strong>, hãy sử dụng đủ 4 mức điểm
             <strong>1, 2, 3, 4</strong>, mỗi mức chỉ được sử dụng một lần.
+
         </p>
 
     </div>
 
 
-    <div class="table-wrapper">
+    <!-- QUIZ TABLE -->
+    <div class="quiz-table-wrapper">
 
         <table>
 
@@ -310,322 +397,185 @@
 
             <tbody>
 
-                <!-- HÀNG 1 -->
-
-                <tr data-row="1">
+                <!-- ROW 1 -->
+                <tr class="quiz-row">
 
                     <td>
-                        <div class="word">Chỉ đạo</div>
+                        <span class="item-name">Chỉ đạo</span>
 
-                        <select class="score-select"
-                                data-group="1"
-                                data-row="1">
+                        <select class="score-select" data-group="0">
                             <option value="">Chọn điểm</option>
-                            <option value="1">1</option>
-                            <option value="2">2</option>
-                            <option value="3">3</option>
                             <option value="4">4</option>
+                            <option value="3">3</option>
+                            <option value="2">2</option>
+                            <option value="1">1</option>
                         </select>
                     </td>
 
 
                     <td>
-                        <div class="word">Có ảnh hưởng</div>
+                        <span class="item-name">Có ảnh hưởng</span>
 
-                        <select class="score-select"
-                                data-group="2"
-                                data-row="1">
+                        <select class="score-select" data-group="1">
                             <option value="">Chọn điểm</option>
-                            <option value="1">1</option>
-                            <option value="2">2</option>
-                            <option value="3">3</option>
                             <option value="4">4</option>
+                            <option value="3">3</option>
+                            <option value="2">2</option>
+                            <option value="1">1</option>
                         </select>
                     </td>
 
 
                     <td>
-                        <div class="word">Chắc chắn</div>
+                        <span class="item-name">Chắc chắn</span>
 
-                        <select class="score-select"
-                                data-group="3"
-                                data-row="1">
+                        <select class="score-select" data-group="2">
                             <option value="">Chọn điểm</option>
-                            <option value="1">1</option>
-                            <option value="2">2</option>
-                            <option value="3">3</option>
                             <option value="4">4</option>
+                            <option value="3">3</option>
+                            <option value="2">2</option>
+                            <option value="1">1</option>
                         </select>
                     </td>
 
 
                     <td>
-                        <div class="word">Cẩn thận</div>
+                        <span class="item-name">Cẩn thận</span>
 
-                        <select class="score-select"
-                                data-group="4"
-                                data-row="1">
+                        <select class="score-select" data-group="3">
                             <option value="">Chọn điểm</option>
-                            <option value="1">1</option>
-                            <option value="2">2</option>
-                            <option value="3">3</option>
                             <option value="4">4</option>
+                            <option value="3">3</option>
+                            <option value="2">2</option>
+                            <option value="1">1</option>
                         </select>
                     </td>
 
                 </tr>
 
 
-                <!-- HÀNG 2 -->
-
-                <tr data-row="2">
+                <!-- ROW 2 -->
+                <tr class="quiz-row">
 
                     <td>
-                        <div class="word">Quyết đoán</div>
+                        <span class="item-name">Quyết đoán</span>
 
-                        <select class="score-select"
-                                data-group="1"
-                                data-row="2">
+                        <select class="score-select" data-group="0">
                             <option value="">Chọn điểm</option>
-                            <option value="1">1</option>
-                            <option value="2">2</option>
-                            <option value="3">3</option>
                             <option value="4">4</option>
+                            <option value="3">3</option>
+                            <option value="2">2</option>
+                            <option value="1">1</option>
                         </select>
                     </td>
 
 
                     <td>
-                        <div class="word">Lạc quan</div>
+                        <span class="item-name">Lạc quan</span>
 
-                        <select class="score-select"
-                                data-group="2"
-                                data-row="2">
+                        <select class="score-select" data-group="1">
                             <option value="">Chọn điểm</option>
-                            <option value="1">1</option>
-                            <option value="2">2</option>
-                            <option value="3">3</option>
                             <option value="4">4</option>
+                            <option value="3">3</option>
+                            <option value="2">2</option>
+                            <option value="1">1</option>
                         </select>
                     </td>
 
 
                     <td>
-                        <div class="word">Kiên nhẫn</div>
+                        <span class="item-name">Kiên nhẫn</span>
 
-                        <select class="score-select"
-                                data-group="3"
-                                data-row="2">
+                        <select class="score-select" data-group="2">
                             <option value="">Chọn điểm</option>
-                            <option value="1">1</option>
-                            <option value="2">2</option>
-                            <option value="3">3</option>
                             <option value="4">4</option>
+                            <option value="3">3</option>
+                            <option value="2">2</option>
+                            <option value="1">1</option>
                         </select>
                     </td>
 
 
                     <td>
-                        <div class="word">Dễ dãi</div>
+                        <span class="item-name">Dễ dãi</span>
 
-                        <select class="score-select"
-                                data-group="4"
-                                data-row="2">
+                        <select class="score-select" data-group="3">
                             <option value="">Chọn điểm</option>
-                            <option value="1">1</option>
-                            <option value="2">2</option>
-                            <option value="3">3</option>
                             <option value="4">4</option>
+                            <option value="3">3</option>
+                            <option value="2">2</option>
+                            <option value="1">1</option>
                         </select>
                     </td>
 
                 </tr>
 
 
-                <!-- HÀNG 3 -->
-
-                <tr data-row="3">
+                <!-- ROW 3 -->
+                <tr class="quiz-row">
 
                     <td>
-                        <div class="word">Dám làm</div>
+                        <span class="item-name">Dám làm</span>
 
-                        <select class="score-select"
-                                data-group="1"
-                                data-row="3">
+                        <select class="score-select" data-group="0">
                             <option value="">Chọn điểm</option>
-                            <option value="1">1</option>
-                            <option value="2">2</option>
-                            <option value="3">3</option>
                             <option value="4">4</option>
+                            <option value="3">3</option>
+                            <option value="2">2</option>
+                            <option value="1">1</option>
                         </select>
                     </td>
 
 
                     <td>
-                        <div class="word">Nhiệt tình</div>
+                        <span class="item-name">Nhiệt tình</span>
 
-                        <select class="score-select"
-                                data-group="2"
-                                data-row="3">
+                        <select class="score-select" data-group="1">
                             <option value="">Chọn điểm</option>
-                            <option value="1">1</option>
-                            <option value="2">2</option>
-                            <option value="3">3</option>
                             <option value="4">4</option>
+                            <option value="3">3</option>
+                            <option value="2">2</option>
+                            <option value="1">1</option>
                         </select>
                     </td>
 
 
                     <td>
-                        <div class="word">Ổn định</div>
+                        <span class="item-name">Ổn định</span>
 
-                        <select class="score-select"
-                                data-group="3"
-                                data-row="3">
+                        <select class="score-select" data-group="2">
                             <option value="">Chọn điểm</option>
-                            <option value="1">1</option>
-                            <option value="2">2</option>
-                            <option value="3">3</option>
                             <option value="4">4</option>
+                            <option value="3">3</option>
+                            <option value="2">2</option>
+                            <option value="1">1</option>
                         </select>
                     </td>
 
 
                     <td>
-                        <div class="word">Có phân tích</div>
+                        <span class="item-name">Có phân tích</span>
 
-                        <select class="score-select"
-                                data-group="4"
-                                data-row="3">
+                        <select class="score-select" data-group="3">
                             <option value="">Chọn điểm</option>
-                            <option value="1">1</option>
-                            <option value="2">2</option>
-                            <option value="3">3</option>
                             <option value="4">4</option>
+                            <option value="3">3</option>
+                            <option value="2">2</option>
+                            <option value="1">1</option>
                         </select>
                     </td>
 
                 </tr>
 
 
-                <!-- HÀNG 4 -->
-
-                <tr data-row="4">
+                <!-- ROW 4 -->
+                <tr class="quiz-row">
 
                     <td>
-                        <div class="word">Thích cạnh tranh</div>
+                        <span class="item-name">Thích cạnh tranh</span>
 
-                        <select class="score-select"
-                                data-group="1"
-                                data-row="4">
+                        <select class="score-select" data-group="0">
                             <option value="">Chọn điểm</option>
-                            <option value="1">1</option>
-                            <option value="2">2</option>
-                            <option value="3">3</option>
                             <option value="4">4</option>
-                        </select>
-                    </td>
-
-
-                    <td>
-                        <div class="word">Hay nói</div>
-
-                        <select class="score-select"
-                                data-group="2"
-                                data-row="4">
-                            <option value="">Chọn điểm</option>
-                            <option value="1">1</option>
-                            <option value="2">2</option>
                             <option value="3">3</option>
-                            <option value="4">4</option>
-                        </select>
-                    </td>
-
-
-                    <td>
-                        <div class="word">Hay giúp đỡ</div>
-
-                        <select class="score-select"
-                                data-group="3"
-                                data-row="4">
-                            <option value="">Chọn điểm</option>
-                            <option value="1">1</option>
-                            <option value="2">2</option>
-                            <option value="3">3</option>
-                            <option value="4">4</option>
-                        </select>
-                    </td>
-
-
-                    <td>
-                        <div class="word">Chính xác</div>
-
-                        <select class="score-select"
-                                data-group="4"
-                                data-row="4">
-                            <option value="">Chọn điểm</option>
-                            <option value="1">1</option>
-                            <option value="2">2</option>
-                            <option value="3">3</option>
-                            <option value="4">4</option>
-                        </select>
-                    </td>
-
-                </tr>
-
-
-                <!-- HÀNG 5 -->
-
-                <tr data-row="5">
-
-                    <td>
-                        <div class="word">Mạnh mẽ</div>
-
-                        <select class="score-select"
-                                data-group="1"
-                                data-row="5">
-                            <option value="">Chọn điểm</option>
-                            <option value="1">1</option>
-                            <option value="2">2</option>
-                            <option value="3">3</option>
-                            <option value="4">4</option>
-                        </select>
-                    </td>
-
-
-                    <td>
-                        <div class="word">Duyên dáng</div>
-
-                        <select class="score-select"
-                                data-group="2"
-                                data-row="5">
-                            <option value="">Chọn điểm</option>
-                            <option value="1">1</option>
-                            <option value="2">2</option>
-                            <option value="3">3</option>
-                            <option value="4">4</option>
-                        </select>
-                    </td>
-
-
-                    <td>
-                        <div class="word">Dễ tính</div>
-
-                        <select class="score-select"
-                                data-group="3"
-                                data-row="5">
-                            <option value="">Chọn điểm</option>
-                            <option value="1">1</option>
-                            <option value="2">2</option>
-                            <option value="3">3</option>
-                            <option value="4">4</option>
-                        </select>
-                    </td>
-
-
-                    <td>
-                        <div class="word">Tò mò</div>
-
-                        <select class="score-select"
-                                data-group="4"
-                               
+                            <
