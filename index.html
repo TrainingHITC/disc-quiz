@@ -9,29 +9,28 @@
 <style>
 
 body{
-    font-family: Arial, sans-serif;
-    background:#f5f7fb;
-    margin:0;
+    font-family:Arial, sans-serif;
+    background:#f4f7fb;
     padding:20px;
 }
 
 .container{
     max-width:1000px;
     margin:auto;
-    background:white;
+    background:#fff;
     padding:30px;
-    border-radius:16px;
-    box-shadow:0 5px 20px rgba(0,0,0,0.1);
+    border-radius:15px;
+    box-shadow:0 5px 20px rgba(0,0,0,.1);
 }
 
 h1{
     text-align:center;
-    color:#003b70;
+    color:#004080;
 }
 
 .note{
     text-align:center;
-    margin-bottom:30px;
+    margin-bottom:25px;
 }
 
 table{
@@ -41,38 +40,26 @@ table{
 }
 
 th{
-    background:#eaf2f8;
+    background:#004080;
+    color:white;
     padding:12px;
 }
 
 td{
     border:1px solid #ddd;
-    padding:12px;
+    padding:10px;
     text-align:center;
 }
 
 td:first-child{
     text-align:left;
-    font-weight:500;
+    font-weight:bold;
 }
-
 
 input[type="radio"]{
     transform:scale(1.3);
     cursor:pointer;
 }
-
-
-.group-title{
-
-background:#003b70;
-color:white;
-padding:12px;
-margin-top:25px;
-border-radius:8px;
-
-}
-
 
 button{
 
@@ -87,11 +74,8 @@ cursor:pointer;
 
 }
 
-
 button:hover{
-
 background:#004c99;
-
 }
 
 
@@ -99,17 +83,9 @@ background:#004c99;
 
 display:none;
 margin-top:30px;
-padding:25px;
+padding:20px;
 background:#eef6ff;
 border-radius:12px;
-
-}
-
-
-.score{
-
-font-size:18px;
-font-weight:bold;
 
 }
 
@@ -137,16 +113,20 @@ Khám phá phong cách làm việc của bạn
 </p>
 
 <p>
-Hãy chấm điểm theo mức độ phù hợp với bản thân:
+Trong mỗi hàng, hãy phân bổ:
 </p>
 
 <p>
 <strong>
-4 - Giống với mình nhất &nbsp;&nbsp;
-3 - Gần giống mình &nbsp;&nbsp;
-2 - Ít giống hơn &nbsp;&nbsp;
-1 - Ít giống nhất
+4 = Giống mình nhất |
+3 = Gần giống |
+2 = Ít giống |
+1 = Ít giống nhất
 </strong>
+</p>
+
+<p>
+Mỗi hàng chỉ được sử dụng mỗi mức điểm một lần.
 </p>
 
 </div>
@@ -156,77 +136,51 @@ Hãy chấm điểm theo mức độ phù hợp với bản thân:
 <form id="quiz">
 
 
-<div class="group-title">
-Nhóm 1
-</div>
+
+<script>
 
 
-<table>
+const rows=[
 
-<tr>
-<th>Đặc điểm</th>
-<th>4</th>
-<th>3</th>
-<th>2</th>
-<th>1</th>
-</tr>
+[
+"Chỉ đạo",
+"Có ảnh hưởng",
+"Chắc chắn",
+"Cẩn thận"
+],
 
+[
+"Quyết đoán",
+"Lạc quan",
+"Kiên nhẫn",
+"Dễ đặt"
+],
 
-<tr>
-<td>Chỉ đạo</td>
-<td><input type="radio" name="g1_1" value="4"></td>
-<td><input type="radio" name="g1_1" value="3"></td>
-<td><input type="radio" name="g1_1" value="2"></td>
-<td><input type="radio" name="g1_1" value="1"></td>
-</tr>
+[
+"Dám làm",
+"Nhiệt tình",
+"Ổn định",
+"Có phân tích"
+],
 
+[
+"Thích cạnh tranh",
+"Hay nói",
+"Hay giúp đỡ",
+"Chính xác"
+],
 
-<tr>
-<td>Quyết đoán</td>
-<td><input type="radio" name="g1_2" value="4"></td>
-<td><input type="radio" name="g1_2" value="3"></td>
-<td><input type="radio" name="g1_2" value="2"></td>
-<td><input type="radio" name="g1_2" value="1"></td>
-</tr>
+[
+"Mạnh mẽ",
+"Duyên dáng",
+"Dễ tính",
+"Tò mò"
+]
 
-
-<tr>
-<td>Dám làm</td>
-<td><input type="radio" name="g1_3" value="4"></td>
-<td><input type="radio" name="g1_3" value="3"></td>
-<td><input type="radio" name="g1_3" value="2"></td>
-<td><input type="radio" name="g1_3" value="1"></td>
-</tr>
-
-
-<tr>
-<td>Thích cạnh tranh</td>
-<td><input type="radio" name="g1_4" value="4"></td>
-<td><input type="radio" name="g1_4" value="3"></td>
-<td><input type="radio" name="g1_4" value="2"></td>
-<td><input type="radio" name="g1_4" value="1"></td>
-</tr>
+];
 
 
-<tr>
-<td>Mạnh mẽ</td>
-<td><input type="radio" name="g1_5" value="4"></td>
-<td><input type="radio" name="g1_5" value="3"></td>
-<td><input type="radio" name="g1_5" value="2"></td>
-<td><input type="radio" name="g1_5" value="1"></td>
-</tr>
-
-
-</table>
-
-
-
-
-
-<div class="group-title">
-Nhóm 2
-</div>
-
+document.write(`
 
 <table>
 
@@ -238,187 +192,74 @@ Nhóm 2
 <th>1</th>
 </tr>
 
+`);
+
+
+rows.forEach((row,index)=>{
+
+
+row.forEach((item,col)=>{
+
+
+document.write(`
 
 <tr>
-<td>Có ảnh hưởng</td>
-<td><input type="radio" name="g2_1" value="4"></td>
-<td><input type="radio" name="g2_1" value="3"></td>
-<td><input type="radio" name="g2_1" value="2"></td>
-<td><input type="radio" name="g2_1" value="1"></td>
-</tr>
 
-<tr>
-<td>Lạc quan</td>
-<td><input type="radio" name="g2_2" value="4"></td>
-<td><input type="radio" name="g2_2" value="3"></td>
-<td><input type="radio" name="g2_2" value="2"></td>
-<td><input type="radio" name="g2_2" value="1"></td>
-</tr>
+<td>${item}</td>
 
 
-<tr>
-<td>Nhiệt tình</td>
-<td><input type="radio" name="g2_3" value="4"></td>
-<td><input type="radio" name="g2_3" value="3"></td>
-<td><input type="radio" name="g2_3" value="2"></td>
-<td><input type="radio" name="g2_3" value="1"></td>
-</tr>
+<td>
+<input 
+type="radio"
+name="row${index}"
+value="4"
+data-group="${col}">
+</td>
 
 
-<tr>
-<td>Hay nói</td>
-<td><input type="radio" name="g2_4" value="4"></td>
-<td><input type="radio" name="g2_4" value="3"></td>
-<td><input type="radio" name="g2_4" value="2"></td>
-<td><input type="radio" name="g2_4" value="1"></td>
-</tr>
+<td>
+<input 
+type="radio"
+name="row${index}"
+value="3"
+data-group="${col}">
+</td>
 
 
-<tr>
-<td>Duyên dáng</td>
-<td><input type="radio" name="g2_5" value="4"></td>
-<td><input type="radio" name="g2_5" value="3"></td>
-<td><input type="radio" name="g2_5" value="2"></td>
-<td><input type="radio" name="g2_5" value="1"></td>
-</tr>
+<td>
+<input 
+type="radio"
+name="row${index}"
+value="2"
+data-group="${col}">
+</td>
 
 
-</table>
+<td>
+<input 
+type="radio"
+name="row${index}"
+value="1"
+data-group="${col}">
+</td>
 
 
-
-
-
-
-<div class="group-title">
-Nhóm 3
-</div>
-
-
-<table>
-
-<tr>
-<th>Đặc điểm</th>
-<th>4</th>
-<th>3</th>
-<th>2</th>
-<th>1</th>
 </tr>
 
 
-<tr>
-<td>Chắc chắn</td>
-<td><input type="radio" name="g3_1" value="4"></td>
-<td><input type="radio" name="g3_1" value="3"></td>
-<td><input type="radio" name="g3_1" value="2"></td>
-<td><input type="radio" name="g3_1" value="1"></td>
-</tr>
+`);
 
 
-<tr>
-<td>Kiên nhẫn</td>
-<td><input type="radio" name="g3_2" value="4"></td>
-<td><input type="radio" name="g3_2" value="3"></td>
-<td><input type="radio" name="g3_2" value="2"></td>
-<td><input type="radio" name="g3_2" value="1"></td>
-</tr>
+});
 
 
-<tr>
-<td>Ổn định</td>
-<td><input type="radio" name="g3_3" value="4"></td>
-<td><input type="radio" name="g3_3" value="3"></td>
-<td><input type="radio" name="g3_3" value="2"></td>
-<td><input type="radio" name="g3_3" value="1"></td>
-</tr>
+});
 
 
-<tr>
-<td>Hay giúp đỡ</td>
-<td><input type="radio" name="g3_4" value="4"></td>
-<td><input type="radio" name="g3_4" value="3"></td>
-<td><input type="radio" name="g3_4" value="2"></td>
-<td><input type="radio" name="g3_4" value="1"></td>
-</tr>
+document.write(`</table>`);
 
 
-<tr>
-<td>Dễ tính</td>
-<td><input type="radio" name="g3_5" value="4"></td>
-<td><input type="radio" name="g3_5" value="3"></td>
-<td><input type="radio" name="g3_5" value="2"></td>
-<td><input type="radio" name="g3_5" value="1"></td>
-</tr>
-
-</table>
-
-
-
-
-
-
-<div class="group-title">
-Nhóm 4
-</div>
-
-
-<table>
-
-<tr>
-<th>Đặc điểm</th>
-<th>4</th>
-<th>3</th>
-<th>2</th>
-<th>1</th>
-</tr>
-
-
-<tr>
-<td>Cẩn thận</td>
-<td><input type="radio" name="g4_1" value="4"></td>
-<td><input type="radio" name="g4_1" value="3"></td>
-<td><input type="radio" name="g4_1" value="2"></td>
-<td><input type="radio" name="g4_1" value="1"></td>
-</tr>
-
-
-<tr>
-<td>Dễ đặt</td>
-<td><input type="radio" name="g4_2" value="4"></td>
-<td><input type="radio" name="g4_2" value="3"></td>
-<td><input type="radio" name="g4_2" value="2"></td>
-<td><input type="radio" name="g4_2" value="1"></td>
-</tr>
-
-
-<tr>
-<td>Có phân tích</td>
-<td><input type="radio" name="g4_3" value="4"></td>
-<td><input type="radio" name="g4_3" value="3"></td>
-<td><input type="radio" name="g4_3" value="2"></td>
-<td><input type="radio" name="g4_3" value="1"></td>
-</tr>
-
-
-<tr>
-<td>Chính xác</td>
-<td><input type="radio" name="g4_4" value="4"></td>
-<td><input type="radio" name="g4_4" value="3"></td>
-<td><input type="radio" name="g4_4" value="2"></td>
-<td><input type="radio" name="g4_4" value="1"></td>
-</tr>
-
-
-<tr>
-<td>Tò mò</td>
-<td><input type="radio" name="g4_5" value="4"></td>
-<td><input type="radio" name="g4_5" value="3"></td>
-<td><input type="radio" name="g4_5" value="2"></td>
-<td><input type="radio" name="g4_5" value="1"></td>
-</tr>
-
-
-</table>
+</script>
 
 
 
@@ -431,6 +272,7 @@ Xem kết quả
 
 
 
+
 <div class="result" id="result"></div>
 
 
@@ -438,36 +280,502 @@ Xem kết quả
 </div>
 
 
+
+
+
 <script>
 
 
-function total(prefix){
+// kiểm tra không cho trùng điểm trong cùng hàng
 
-let sum=0;
+document.querySelectorAll('input[type="radio"]').forEach(input=>{
+
+
+input.addEventListener('change',function(){
+
+
+let row=this.name;
+
+
+let selected=[];
+
 
 document.querySelectorAll(
-'input[name^="'+prefix+'"]:checked'
+'input[name="'+row+'"]:checked'
 )
 .forEach(e=>{
-sum += Number(e.value);
+
+selected.push(e.value);
+
 });
 
-return sum;
 
-}
+
+});
+
+});
+
+
 
 
 
 function calculate(){
 
 
-let g1=total("g1");
-let g2=total("g2");
-let g3=total("g3");
-let g4=total("g4");
+let valid=true;
 
 
-let result=document.getElementById("result");
+for(let i=0;i<rows.length;i++){
+
+let checked=
+document.querySelectorAll(
+'input[name="row'+i+'"]:checked'
+).length;
+
+
+if(checked<4){
+
+valid=false;
+
+}
+
+}
+
+
+
+if(!valid){
+
+alert("Bạn cần chọn đủ 4 mức điểm cho mỗi hàng.");
+
+return;
+
+}
+
+
+
+
+let group=[0,0,0,0];
+
+
+
+rows.forEach((row,index)=>{
+
+
+let selected=
+document.querySelectorAll(
+'input[name="row'+index+'"]:checked'
+);
+
+
+selected.forEach(item=>{
+
+
+let col=item.dataset.group;
+
+group[col]+=Number(item.value);
+
+
+});
+
+
+});
+
+
+
+document.getElementById("result").style.display="block";
+
+
+document.getElementById("result").innerHTML=`
+
+<h2>Kết quả của bạn</h2>
+
+<p>
+Nhóm 1: <b>${group[0]} điểm</b>
+</p>
+
+<p>
+Nhóm 2: <b>${group[1]} điểm</b>
+</p>
+
+<p>
+Nhóm 3: <b>${group[2]} điểm</b>
+</p>
+
+<p>
+Nhóm 4: <b>${group[3]} điểm</b>
+</p>
+
+`;
+
+}
+
+
+
+</script>
+
+
+</body>
+
+</html>
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Discover Your Style</title>
+
+<style>
+
+body{
+font-family:Arial,sans-serif;
+background:#f5f7fb;
+padding:20px;
+}
+
+
+.container{
+max-width:1100px;
+margin:auto;
+background:white;
+padding:30px;
+border-radius:15px;
+}
+
+
+h1{
+text-align:center;
+color:#003b70;
+}
+
+
+.note{
+text-align:center;
+line-height:1.6;
+}
+
+
+table{
+width:100%;
+border-collapse:collapse;
+margin-top:25px;
+}
+
+
+th{
+background:#003b70;
+color:white;
+padding:12px;
+}
+
+
+td{
+border:1px solid #ddd;
+padding:12px;
+text-align:center;
+}
+
+
+.name{
+font-weight:bold;
+font-size:16px;
+}
+
+
+input{
+transform:scale(1.3);
+cursor:pointer;
+}
+
+
+button{
+margin-top:30px;
+width:100%;
+padding:15px;
+background:#0066cc;
+border:0;
+color:white;
+border-radius:10px;
+font-size:18px;
+}
+
+
+.result{
+display:none;
+margin-top:30px;
+background:#eef6ff;
+padding:20px;
+border-radius:10px;
+}
+
+
+</style>
+
+</head>
+
+
+<body>
+
+
+<div class="container">
+
+
+<h1>
+DISCOVER YOUR STYLE
+</h1>
+
+
+<div class="note">
+
+<p>
+Hãy đánh giá mức độ phù hợp của từng đặc điểm.
+</p>
+
+<p>
+Trong mỗi hàng, bạn phải phân bổ đủ:
+</p>
+
+<p>
+<b>
+4 điểm - Giống mình nhất |
+3 điểm - Gần giống |
+2 điểm - Ít giống |
+1 điểm - Ít giống nhất
+</b>
+</p>
+
+</div>
+
+
+
+<table>
+
+
+<tr>
+
+<th>Nhóm 1</th>
+<th>Nhóm 2</th>
+<th>Nhóm 3</th>
+<th>Nhóm 4</th>
+
+</tr>
+
+
+
+<tbody id="quizTable"></tbody>
+
+
+</table>
+
+
+
+<button onclick="calculate()">
+Xem kết quả
+</button>
+
+
+<div id="result" class="result"></div>
+
+
+</div>
+
+
+
+
+
+<script>
+
+
+const data=[
+
+
+[
+"Chỉ đạo",
+"Có ảnh hưởng",
+"Chắc chắn",
+"Cẩn thận"
+],
+
+
+[
+"Quyết đoán",
+"Lạc quan",
+"Kiên nhẫn",
+"Dễ đặt"
+],
+
+
+[
+"Dám làm",
+"Nhiệt tình",
+"Ổn định",
+"Có phân tích"
+],
+
+
+[
+"Thích cạnh tranh",
+"Hay nói",
+"Hay giúp đỡ",
+"Chính xác"
+],
+
+
+[
+"Mạnh mẽ",
+"Duyên dáng",
+"Dễ tính",
+"Tò mò"
+]
+
+
+];
+
+
+
+let html="";
+
+
+
+data.forEach((row,index)=>{
+
+
+html+=`
+
+<tr>
+
+`;
+
+
+
+row.forEach((item,col)=>{
+
+
+html+=`
+
+<td>
+
+<div class="name">
+${item}
+</div>
+
+
+<br>
+
+
+<label>
+4
+<input 
+type="radio"
+name="row${index}"
+value="4"
+data-col="${col}">
+</label>
+
+
+<label>
+3
+<input 
+type="radio"
+name="row${index}"
+value="3"
+data-col="${col}">
+</label>
+
+
+<label>
+2
+<input 
+type="radio"
+name="row${index}"
+value="2"
+data-col="${col}">
+</label>
+
+
+<label>
+1
+<input 
+type="radio"
+name="row${index}"
+value="1"
+data-col="${col}">
+</label>
+
+
+</td>
+
+
+`;
+
+
+});
+
+
+html+="</tr>";
+
+
+});
+
+
+
+document.getElementById("quizTable").innerHTML=html;
+
+
+
+
+
+
+function calculate(){
+
+
+let totals=[0,0,0,0];
+
+
+
+for(let i=0;i<5;i++){
+
+
+let selected=
+document.querySelector(
+'input[name="row'+i+'"]:checked'
+);
+
+
+if(!selected){
+
+alert(
+"Bạn chưa hoàn thành hàng số "+(i+1)
+);
+
+return;
+
+}
+
+
+
+let value=
+Number(selected.value);
+
+
+
+let col=
+Number(selected.dataset.col);
+
+
+
+totals[col]+=value;
+
+
+}
+
+
+
+
+let result=
+document.getElementById("result");
 
 
 result.style.display="block";
@@ -477,18 +785,33 @@ result.innerHTML=`
 
 <h2>Kết quả của bạn</h2>
 
-<p class="score">Nhóm 1: ${g1} điểm</p>
-<p class="score">Nhóm 2: ${g2} điểm</p>
-<p class="score">Nhóm 3: ${g3} điểm</p>
-<p class="score">Nhóm 4: ${g4} điểm</p>
+<p>
+Nhóm 1: <b>${totals[0]} điểm</b>
+</p>
+
+<p>
+Nhóm 2: <b>${totals[1]} điểm</b>
+</p>
+
+<p>
+Nhóm 3: <b>${totals[2]} điểm</b>
+</p>
+
+<p>
+Nhóm 4: <b>${totals[3]} điểm</b>
+</p>
 
 `;
 
+
+
 }
+
 
 
 </script>
 
 
 </body>
+
 </html>
