@@ -1,43 +1,137 @@
 <!DOCTYPE html>
-<html>
+<html lang="vi">
 
 <head>
 
-<title>
-DISCOVER YOUR STYLE
-</title>
+<meta charset="UTF-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Discover Your Style</title>
+
 
 <style>
 
 body{
-font-family:Arial;
-background:#f5f7fb;
-padding:30px;
+    font-family: Arial, sans-serif;
+    background:#f4f7fb;
+    margin:0;
+    padding:20px;
 }
 
-.box{
-max-width:800px;
-margin:auto;
-background:white;
-padding:30px;
-border-radius:15px;
+
+.container{
+    max-width:900px;
+    margin:auto;
+    background:white;
+    padding:30px;
+    border-radius:18px;
+    box-shadow:0 5px 20px rgba(0,0,0,0.08);
+}
+
+
+h1{
+    text-align:center;
+    color:#003b70;
+}
+
+
+.subtitle{
+    text-align:center;
+    color:#555;
+    margin-bottom:30px;
+}
+
+
+.group{
+    margin-top:30px;
+    padding:20px;
+    border-radius:12px;
+    background:#f8fafc;
+}
+
+
+.group h2{
+    color:#003b70;
+}
+
+
+.item{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:12px 0;
+    border-bottom:1px solid #ddd;
 }
 
 
 select{
+
 padding:8px;
-width:100%;
-margin-bottom:15px;
+
+border-radius:8px;
+
+font-size:16px;
+
 }
 
 
 button{
-background:#005baa;
+
+margin-top:30px;
+
+width:100%;
+
+padding:15px;
+
+background:#0066cc;
+
 color:white;
-border:0;
-padding:12px 25px;
-border-radius:8px;
+
+border:none;
+
+border-radius:10px;
+
+font-size:18px;
+
+cursor:pointer;
+
 }
+
+
+button:hover{
+
+background:#004c99;
+
+}
+
+
+.result{
+
+display:none;
+
+margin-top:30px;
+
+padding:25px;
+
+background:#eef6ff;
+
+border-radius:15px;
+
+font-size:18px;
+
+}
+
+
+
+.score{
+
+font-size:20px;
+
+font-weight:bold;
+
+}
+
 
 
 </style>
@@ -45,10 +139,11 @@ border-radius:8px;
 </head>
 
 
+
 <body>
 
 
-<div class="box">
+<div class="container">
 
 
 <h1>
@@ -56,51 +151,350 @@ DISCOVER YOUR STYLE
 </h1>
 
 
-<p>
-Khám phá phong cách làm việc của bạn.
-</p>
+<div class="subtitle">
+
+Khám phá phong cách làm việc của bạn
+
+<br>
+
+Hãy chấm điểm từng đặc điểm theo mức độ phù hợp với bản thân.
+
+<br><br>
+
+1 - Không giống tôi &nbsp;&nbsp;
+5 - Giống tôi nhất
+
+</div>
+
+
+
+<form id="quiz">
+
+
+
+<!-- NHÓM 1 -->
+
+
+<div class="group">
 
 
 <h2>
-🚀 Nhóm D - Phong cách hành động
+Nhóm 1
 </h2>
 
 
-<p>
-Chỉ đạo
-</p>
-
-<select>
-<option>Chọn điểm</option>
+<div class="item">
+<span>Chỉ đạo</span>
+<select class="g1">
+<option value="0">--</option>
 <option>1</option>
 <option>2</option>
 <option>3</option>
 <option>4</option>
 <option>5</option>
 </select>
+</div>
 
 
-
-<p>
-Quyết đoán
-</p>
-
-<select>
-<option>Chọn điểm</option>
+<div class="item">
+<span>Quyết đoán</span>
+<select class="g1">
+<option value="0">--</option>
 <option>1</option>
 <option>2</option>
 <option>3</option>
 <option>4</option>
 <option>5</option>
 </select>
+</div>
 
 
-<button>
+<div class="item">
+<span>Dám làm</span>
+<select class="g1">
+<option value="0">--</option>
+<option>1</option>
+<option>2</option>
+<option>3</option>
+<option>4</option>
+<option>5</option>
+</select>
+</div>
+
+
+<div class="item">
+<span>Thích cạnh tranh</span>
+<select class="g1">
+<option value="0">--</option>
+<option>1</option>
+<option>2</option>
+<option>3</option>
+<option>4</option>
+<option>5</option>
+</select>
+</div>
+
+
+<div class="item">
+<span>Mạnh mẽ</span>
+<select class="g1">
+<option value="0">--</option>
+<option>1</option>
+<option>2</option>
+<option>3</option>
+<option>4</option>
+<option>5</option>
+</select>
+</div>
+
+
+</div>
+
+
+
+
+<!-- NHÓM 2 -->
+
+
+<div class="group">
+
+
+<h2>
+Nhóm 2
+</h2>
+
+
+<div class="item"><span>Có ảnh hưởng</span>
+<select class="g2"><option value="0">--</option><option>1</option><option>2</option><option>3</option><option>4</option><option>5</option></select>
+</div>
+
+
+<div class="item"><span>Lạc quan</span>
+<select class="g2"><option value="0">--</option><option>1</option><option>2</option><option>3</option><option>4</option><option>5</option></select>
+</div>
+
+
+<div class="item"><span>Nhiệt tình</span>
+<select class="g2"><option value="0">--</option><option>1</option><option>2</option><option>3</option><option>4</option><option>5</option></select>
+</div>
+
+
+<div class="item"><span>Hay nói</span>
+<select class="g2"><option value="0">--</option><option>1</option><option>2</option><option>3</option><option>4</option><option>5</option></select>
+</div>
+
+
+<div class="item"><span>Duyên dáng</span>
+<select class="g2"><option value="0">--</option><option>1</option><option>2</option><option>3</option><option>4</option><option>5</option></select>
+</div>
+
+
+</div>
+
+
+
+
+
+<!-- NHÓM 3 -->
+
+
+<div class="group">
+
+
+<h2>
+Nhóm 3
+</h2>
+
+
+<div class="item"><span>Chắc chắn</span>
+<select class="g3"><option value="0">--</option><option>1</option><option>2</option><option>3</option><option>4</option><option>5</option></select>
+</div>
+
+
+<div class="item"><span>Kiên nhẫn</span>
+<select class="g3"><option value="0">--</option><option>1</option><option>2</option><option>3</option><option>4</option><option>5</option></select>
+</div>
+
+
+<div class="item"><span>Ổn định</span>
+<select class="g3"><option value="0">--</option><option>1</option><option>2</option><option>3</option><option>4</option><option>5</option></select>
+</div>
+
+
+<div class="item"><span>Hay giúp đỡ</span>
+<select class="g3"><option value="0">--</option><option>1</option><option>2</option><option>3</option><option>4</option><option>5</option></select>
+</div>
+
+
+<div class="item"><span>Dễ tính</span>
+<select class="g3"><option value="0">--</option><option>1</option><option>2</option><option>3</option><option>4</option><option>5</option></select>
+</div>
+
+
+</div>
+
+
+
+
+
+<!-- NHÓM 4 -->
+
+
+<div class="group">
+
+
+<h2>
+Nhóm 4
+</h2>
+
+
+<div class="item"><span>Cẩn thận</span>
+<select class="g4"><option value="0">--</option><option>1</option><option>2</option><option>3</option><option>4</option><option>5</option></select>
+</div>
+
+
+<div class="item"><span>Dễ đặt</span>
+<select class="g4"><option value="0">--</option><option>1</option><option>2</option><option>3</option><option>4</option><option>5</option></select>
+</div>
+
+
+<div class="item"><span>Có phân tích</span>
+<select class="g4"><option value="0">--</option><option>1</option><option>2</option><option>3</option><option>4</option><option>5</option></select>
+</div>
+
+
+<div class="item"><span>Chính xác</span>
+<select class="g4"><option value="0">--</option><option>1</option><option>2</option><option>3</option><option>4</option><option>5</option></select>
+</div>
+
+
+<div class="item"><span>Tò mò</span>
+<select class="g4"><option value="0">--</option><option>1</option><option>2</option><option>3</option><option>4</option><option>5</option></select>
+</div>
+
+
+</div>
+
+
+
+<button type="button" onclick="calculate()">
 Xem kết quả
 </button>
 
 
+
+</form>
+
+
+
+<div class="result" id="result"></div>
+
+
+
 </div>
+
+
+
+
+
+<script>
+
+
+function sum(group){
+
+let total=0;
+
+document.querySelectorAll(group).forEach(x=>{
+
+total += Number(x.value);
+
+});
+
+return total;
+
+}
+
+
+
+function calculate(){
+
+
+let g1=sum(".g1");
+let g2=sum(".g2");
+let g3=sum(".g3");
+let g4=sum(".g4");
+
+
+
+let scores={
+
+"Nhóm 1":g1,
+
+"Nhóm 2":g2,
+
+"Nhóm 3":g3,
+
+"Nhóm 4":g4
+
+};
+
+
+let max=Math.max(g1,g2,g3,g4);
+
+
+
+let mainGroup=
+Object.keys(scores).find(
+key=>scores[key]===max
+);
+
+
+
+document.getElementById("result").style.display="block";
+
+
+document.getElementById("result").innerHTML=`
+
+<h2>Kết quả của bạn</h2>
+
+<p class="score">
+Nhóm 1: ${g1} điểm
+</p>
+
+<p class="score">
+Nhóm 2: ${g2} điểm
+</p>
+
+<p class="score">
+Nhóm 3: ${g3} điểm
+</p>
+
+<p class="score">
+Nhóm 4: ${g4} điểm
+</p>
+
+
+<hr>
+
+
+<h2>
+Phong cách nổi bật:
+${mainGroup}
+</h2>
+
+
+<p>
+Nhóm có điểm cao nhất thể hiện xu hướng
+phong cách làm việc nổi bật của bạn.
+</p>
+
+`;
+
+}
+
+
+
+</script>
 
 
 </body>
