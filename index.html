@@ -1,752 +1,626 @@
 <!DOCTYPE html>
 <html lang="vi">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Discover Your Style</title>
+    <title>Discover Your Style</title>
 
-<style>
-    * {
-        box-sizing: border-box;
-    }
-
-    body {
-        margin: 0;
-        font-family: Arial, Helvetica, sans-serif;
-        background: #f5f7fa;
-        color: #172033;
-    }
-
-    .page {
-        width: 100%;
-        max-width: 1200px;
-        margin: 0 auto;
-        padding: 30px 20px 60px;
-    }
-
-    /* =========================
-       HEADER
-    ========================= */
-
-    .hero {
-        text-align: center;
-        padding: 20px 10px 30px;
-    }
-
-    .hero h1 {
-        margin: 0 0 12px;
-        font-size: 38px;
-        letter-spacing: 1px;
-        color: #073b70;
-    }
-
-    .hero p {
-        margin: 7px 0;
-        font-size: 18px;
-        color: #4b5563;
-    }
-
-    .hero .instruction {
-        font-weight: 700;
-        color: #073b70;
-    }
-
-    /* =========================
-       INSTRUCTION BOX
-    ========================= */
-
-    .instruction-box {
-        background: #ffffff;
-        border: 1px solid #dce3eb;
-        border-radius: 12px;
-        padding: 22px 25px;
-        margin-bottom: 28px;
-    }
-
-    .instruction-title {
-        font-size: 18px;
-        font-weight: 700;
-        margin-bottom: 15px;
-    }
-
-    .score-guide {
-        display: flex;
-        justify-content: center;
-        flex-wrap: wrap;
-        gap: 12px 30px;
-        margin-bottom: 15px;
-    }
-
-    .score-guide span {
-        font-size: 16px;
-    }
-
-    .rule {
-        margin: 0;
-        text-align: center;
-        font-weight: 600;
-        color: #374151;
-    }
-
-    /* =========================
-       TABLE
-    ========================= */
-
-    .table-wrapper {
-        background: #ffffff;
-        border-radius: 12px;
-        overflow-x: auto;
-        box-shadow: 0 2px 10px rgba(0,0,0,0.05);
-    }
-
-    table {
-        width: 100%;
-        min-width: 850px;
-        border-collapse: collapse;
-    }
-
-    th {
-        background: #f3dfc7;
-        color: #172033;
-        font-size: 17px;
-        padding: 15px 10px;
-        border: 1px solid #c9c9c9;
-        text-align: center;
-    }
-
-    td {
-        border: 1px solid #d1d5db;
-        text-align: center;
-        padding: 15px 10px;
-        vertical-align: middle;
-    }
-
-    .word {
-        font-size: 17px;
-        font-weight: 500;
-        margin-bottom: 10px;
-    }
-
-    select {
-        width: 120px;
-        max-width: 100%;
-        padding: 9px 12px;
-        border: 1px solid #aeb7c2;
-        border-radius: 7px;
-        background: #ffffff;
-        font-size: 16px;
-        cursor: pointer;
-    }
-
-    select:focus {
-        outline: none;
-        border-color: #0866b6;
-        box-shadow: 0 0 0 2px rgba(8,102,182,0.12);
-    }
-
-    select.completed {
-        border-color: #16803c;
-        background: #f1fbf4;
-    }
-
-    /* =========================
-       TOTAL ROW
-    ========================= */
-
-    .total-label {
-        font-weight: 700;
-        font-size: 17px;
-    }
-
-    .total-cell {
-        background: #f8fafc;
-        font-size: 21px;
-        font-weight: 700;
-        color: #073b70;
-    }
-
-    /* =========================
-       ROW STATUS
-    ========================= */
-
-    .status {
-        display: block;
-        min-height: 20px;
-        margin-top: 8px;
-        font-size: 13px;
-        font-weight: 600;
-    }
-
-    .status.ok {
-        color: #16803c;
-    }
-
-    .status.warning {
-        color: #b45309;
-    }
-
-    /* =========================
-       BUTTONS
-    ========================= */
-
-    .actions {
-        display: flex;
-        justify-content: center;
-        gap: 12px;
-        margin-top: 28px;
-        flex-wrap: wrap;
-    }
-
-    button {
-        border: none;
-        border-radius: 8px;
-        padding: 14px 28px;
-        font-size: 17px;
-        font-weight: 700;
-        cursor: pointer;
-    }
-
-    .btn-result {
-        background: #0866b6;
-        color: white;
-    }
-
-    .btn-result:hover {
-        background: #075697;
-    }
-
-    .btn-reset {
-        background: #e5e7eb;
-        color: #374151;
-    }
-
-    .btn-reset:hover {
-        background: #d1d5db;
-    }
-
-    /* =========================
-       ERROR
-    ========================= */
-
-    .error-message {
-        display: none;
-        background: #fff4f4;
-        border: 1px solid #f1b5b5;
-        color: #a52828;
-        padding: 14px 18px;
-        border-radius: 8px;
-        margin-top: 20px;
-        font-weight: 600;
-    }
-
-    /* =========================
-       RESULT
-    ========================= */
-
-    .result {
-        display: none;
-        margin-top: 40px;
-        background: #ffffff;
-        border-radius: 14px;
-        padding: 30px;
-        box-shadow: 0 3px 15px rgba(0,0,0,0.08);
-    }
-
-    .result h2 {
-        text-align: center;
-        color: #073b70;
-        margin-top: 0;
-        margin-bottom: 25px;
-    }
-
-    .winner {
-        text-align: center;
-        background: #eef6ff;
-        border-radius: 12px;
-        padding: 22px;
-        margin-bottom: 30px;
-    }
-
-    .winner-title {
-        font-size: 16px;
-        color: #526174;
-        margin-bottom: 8px;
-    }
-
-    .winner-group {
-        font-size: 30px;
-        font-weight: 800;
-        color: #0866b6;
-    }
-
-    .winner-score {
-        margin-top: 8px;
-        font-size: 18px;
-        font-weight: 700;
-    }
-
-    /* =========================
-       SCORE CARDS
-    ========================= */
-
-    .score-grid {
-        display: grid;
-        grid-template-columns: repeat(4, 1fr);
-        gap: 15px;
-        margin-bottom: 35px;
-    }
-
-    .score-card {
-        border: 1px solid #dce3eb;
-        border-radius: 10px;
-        padding: 18px;
-        text-align: center;
-        background: #fafbfc;
-    }
-
-    .score-card .name {
-        font-weight: 700;
-        margin-bottom: 8px;
-    }
-
-    .score-card .number {
-        font-size: 28px;
-        font-weight: 800;
-        color: #0866b6;
-    }
-
-    /* =========================
-       CHART
-    ========================= */
-
-    .chart-title {
-        text-align: center;
-        font-size: 20px;
-        font-weight: 700;
-        margin-bottom: 20px;
-    }
-
-    .chart {
-        width: 100%;
-    }
-
-    .bar-row {
-        display: grid;
-        grid-template-columns: 90px 1fr 50px;
-        align-items: center;
-        gap: 12px;
-        margin-bottom: 15px;
-    }
-
-    .bar-name {
-        font-weight: 700;
-    }
-
-    .bar-container {
-        height: 28px;
-        background: #edf0f3;
-        border-radius: 6px;
-        overflow: hidden;
-    }
-
-    .bar {
-        height: 100%;
-        width: 0;
-        background: #0866b6;
-        border-radius: 6px;
-        transition: width 0.7s ease;
-    }
-
-    .bar-value {
-        text-align: right;
-        font-weight: 700;
-    }
-
-    /* =========================
-       MOBILE
-    ========================= */
-
-    @media (max-width: 700px) {
-
-        .page {
-            padding: 20px 12px 40px;
+    <style>
+        * {
+            box-sizing: border-box;
         }
 
-        .hero h1 {
-            font-size: 28px;
+        body {
+            margin: 0;
+            padding: 30px 16px 60px;
+            font-family: Arial, Helvetica, sans-serif;
+            background: #f4f7fb;
+            color: #172033;
         }
 
-        .hero p {
-            font-size: 16px;
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
         }
 
-        .instruction-box {
-            padding: 18px;
+        /* HEADER */
+
+        .header {
+            text-align: center;
+            margin-bottom: 35px;
+        }
+
+        .header h1 {
+            margin: 0 0 12px;
+            color: #064b87;
+            font-size: 42px;
+            font-weight: 800;
+            letter-spacing: 1px;
+        }
+
+        .header p {
+            margin: 8px 0;
+            font-size: 18px;
+            color: #4d5968;
+        }
+
+        .header .instruction-title {
+            margin-top: 10px;
+            color: #064b87;
+            font-size: 21px;
+            font-weight: 700;
+        }
+
+        /* INSTRUCTION */
+
+        .instruction {
+            background: #ffffff;
+            border: 1px solid #d8e0e9;
+            border-radius: 14px;
+            padding: 24px 30px;
+            margin-bottom: 35px;
+        }
+
+        .instruction h2 {
+            margin: 0 0 20px;
+            font-size: 21px;
+            color: #172033;
         }
 
         .score-guide {
-            display: block;
+            display: flex;
+            justify-content: center;
+            gap: 45px;
+            flex-wrap: wrap;
+            margin-bottom: 18px;
+            font-size: 17px;
         }
 
-        .score-guide span {
-            display: block;
-            margin: 6px 0;
+        .score-guide strong {
+            color: #172033;
         }
 
-        .score-grid {
-            grid-template-columns: repeat(2, 1fr);
+        .instruction-note {
+            text-align: center;
+            margin: 0;
+            font-size: 17px;
+            line-height: 1.6;
         }
 
-        .winner-group {
-            font-size: 25px;
+        /* TABLE */
+
+        .quiz-card {
+            background: #ffffff;
+            border-radius: 14px;
+            overflow: hidden;
+            box-shadow: 0 4px 18px rgba(0, 0, 0, 0.06);
         }
 
-        .bar-row {
-            grid-template-columns: 65px 1fr 40px;
-            gap: 8px;
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            table-layout: fixed;
         }
 
-        select {
+        th {
+            background: #f4dfc5;
+            color: #172033;
+            font-size: 19px;
+            font-weight: 700;
+            padding: 17px 10px;
+            border: 1px solid #d0d5dc;
+        }
+
+        td {
+            border: 1px solid #d0d5dc;
+            text-align: center;
+            padding: 18px 10px;
+            background: #ffffff;
+            vertical-align: middle;
+        }
+
+        .word {
+            font-size: 17px;
+            margin-bottom: 12px;
+            min-height: 22px;
+        }
+
+        /* SELECT */
+
+        .score-select {
             width: 105px;
+            height: 42px;
+            padding: 5px 10px;
+            border: 1px solid #aeb8c5;
+            border-radius: 7px;
+            background: #ffffff;
+            font-size: 17px;
+            color: #172033;
+            text-align: center;
+            cursor: pointer;
         }
-    }
 
-</style>
+        .score-select:focus {
+            outline: 2px solid #1672c4;
+            border-color: #1672c4;
+        }
+
+        .score-select.selected {
+            background: #eef6ff;
+            border-color: #1672c4;
+            font-weight: 700;
+        }
+
+        /* VALIDATION */
+
+        .row-status {
+            display: block;
+            min-height: 20px;
+            margin-top: 9px;
+            font-size: 13px;
+            color: #758195;
+        }
+
+        .row-status.complete {
+            color: #18864b;
+            font-weight: 600;
+        }
+
+        .row-status.error {
+            color: #c62828;
+            font-weight: 600;
+        }
+
+        /* TOTAL */
+
+        .totals {
+            margin-top: 25px;
+            background: #ffffff;
+            border-radius: 14px;
+            overflow: hidden;
+            box-shadow: 0 4px 18px rgba(0, 0, 0, 0.06);
+        }
+
+        .totals-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+        }
+
+        .total-box {
+            text-align: center;
+            border-right: 1px solid #d0d5dc;
+        }
+
+        .total-box:last-child {
+            border-right: none;
+        }
+
+        .total-title {
+            background: #f4dfc5;
+            padding: 15px 10px;
+            font-size: 18px;
+            font-weight: 700;
+        }
+
+        .total-label {
+            padding: 13px 10px 3px;
+            font-size: 16px;
+            font-weight: 600;
+        }
+
+        .total-number {
+            padding: 4px 10px 17px;
+            font-size: 28px;
+            font-weight: 800;
+            color: #064b87;
+        }
+
+        /* BUTTONS */
+
+        .actions {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-top: 30px;
+        }
+
+        button {
+            border: none;
+            border-radius: 9px;
+            padding: 14px 32px;
+            font-size: 17px;
+            font-weight: 700;
+            cursor: pointer;
+        }
+
+        .result-button {
+            background: #096fc1;
+            color: white;
+        }
+
+        .result-button:hover {
+            background: #075d9f;
+        }
+
+        .reset-button {
+            background: #e3e6eb;
+            color: #253047;
+        }
+
+        .reset-button:hover {
+            background: #d5d9df;
+        }
+
+        /* RESULT */
+
+        .result-section {
+            display: none;
+            margin-top: 35px;
+            background: #ffffff;
+            border-radius: 16px;
+            padding: 30px;
+            box-shadow: 0 4px 18px rgba(0, 0, 0, 0.07);
+        }
+
+        .result-section.show {
+            display: block;
+        }
+
+        .result-section h2 {
+            text-align: center;
+            margin: 0 0 28px;
+            color: #064b87;
+            font-size: 28px;
+        }
+
+        .result-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 15px;
+            margin-bottom: 30px;
+        }
+
+        .result-score {
+            border: 1px solid #d8e0e9;
+            border-radius: 10px;
+            padding: 18px 10px;
+            text-align: center;
+        }
+
+        .result-score .name {
+            font-size: 17px;
+            font-weight: 700;
+            margin-bottom: 8px;
+        }
+
+        .result-score .number {
+            font-size: 30px;
+            font-weight: 800;
+            color: #064b87;
+        }
+
+        /* CHART */
+
+        .chart {
+            margin-top: 10px;
+        }
+
+        .chart-row {
+            display: grid;
+            grid-template-columns: 80px 1fr 50px;
+            align-items: center;
+            gap: 12px;
+            margin: 17px 0;
+        }
+
+        .chart-name {
+            font-weight: 700;
+        }
+
+        .bar-background {
+            height: 25px;
+            background: #e8edf3;
+            border-radius: 20px;
+            overflow: hidden;
+        }
+
+        .bar {
+            height: 100%;
+            width: 0%;
+            background: #096fc1;
+            border-radius: 20px;
+            transition: width 0.7s ease;
+        }
+
+        .chart-number {
+            font-weight: 700;
+            text-align: right;
+        }
+
+        .main-result {
+            margin-top: 30px;
+            padding: 22px;
+            text-align: center;
+            border-radius: 12px;
+            background: #eef6ff;
+        }
+
+        .main-result .small {
+            font-size: 16px;
+            color: #536174;
+        }
+
+        .main-result .winner {
+            margin-top: 8px;
+            font-size: 28px;
+            font-weight: 800;
+            color: #064b87;
+        }
+
+        .main-result .description {
+            margin-top: 10px;
+            font-size: 16px;
+            color: #4c596a;
+        }
+
+        /* MOBILE */
+
+        @media (max-width: 800px) {
+
+            body {
+                padding: 20px 10px 40px;
+            }
+
+            .header h1 {
+                font-size: 30px;
+            }
+
+            .header p {
+                font-size: 16px;
+            }
+
+            .instruction {
+                padding: 20px 15px;
+            }
+
+            .score-guide {
+                gap: 10px;
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .quiz-card {
+                overflow-x: auto;
+            }
+
+            table {
+                min-width: 760px;
+            }
+
+            .totals-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .total-box:nth-child(2) {
+                border-right: none;
+            }
+
+            .total-box:nth-child(1),
+            .total-box:nth-child(2) {
+                border-bottom: 1px solid #d0d5dc;
+            }
+
+            .result-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .chart-row {
+                grid-template-columns: 65px 1fr 40px;
+            }
+        }
+
+        @media (max-width: 500px) {
+
+            .result-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+
+            .actions {
+                flex-direction: column;
+            }
+
+            button {
+                width: 100%;
+            }
+        }
+
+    </style>
 </head>
 
 
 <body>
 
-<div class="page">
+<div class="container">
 
     <!-- HEADER -->
 
-    <section class="hero">
+    <div class="header">
 
         <h1>DISCOVER YOUR STYLE</h1>
 
         <p>Hãy đặt mình vào hoàn cảnh thoải mái nhất</p>
 
-        <p class="instruction">Cho điểm theo hàng</p>
+        <div class="instruction-title">
+            Cho điểm theo hàng
+        </div>
 
-    </section>
+    </div>
 
 
     <!-- INSTRUCTION -->
 
-    <section class="instruction-box">
+    <div class="instruction">
 
-        <div class="instruction-title">
-            Nguyên tắc chấm điểm
-        </div>
+        <h2>Nguyên tắc chấm điểm</h2>
 
         <div class="score-guide">
 
-            <span><strong>4</strong> – Giống với mình nhất</span>
+            <span>
+                <strong>4</strong> – Giống với mình nhất
+            </span>
 
-            <span><strong>3</strong> – Gần giống</span>
+            <span>
+                <strong>3</strong> – Gần giống
+            </span>
 
-            <span><strong>2</strong> – Ít giống hơn</span>
+            <span>
+                <strong>2</strong> – Ít giống hơn
+            </span>
 
-            <span><strong>1</strong> – Ít giống nhất</span>
+            <span>
+                <strong>1</strong> – Ít giống nhất
+            </span>
 
         </div>
 
-        <p class="rule">
-            Trong mỗi hàng, hãy sử dụng đủ 4 mức điểm
+        <p class="instruction-note">
+            Trong mỗi <strong>hàng</strong>, hãy sử dụng đủ 4 mức điểm
             <strong>1, 2, 3, 4</strong>.
-            Mỗi mức chỉ được sử dụng <strong>một lần</strong>.
+            Mỗi mức chỉ được sử dụng một lần.
         </p>
 
-    </section>
+    </div>
 
 
-    <!-- TABLE -->
+    <!-- QUIZ TABLE -->
 
-    <div class="table-wrapper">
+    <div class="quiz-card">
 
         <table>
 
             <thead>
 
                 <tr>
-
                     <th>Nhóm 1</th>
-
                     <th>Nhóm 2</th>
-
                     <th>Nhóm 3</th>
-
                     <th>Nhóm 4</th>
-
                 </tr>
 
             </thead>
 
 
-            <tbody id="quizBody"></tbody>
+            <tbody>
 
 
-            <tfoot>
+                <!-- ROW 1 -->
 
-                <tr>
+                <tr data-row="1">
 
-                    <td class="total-label">
-                        Tổng điểm
+                    <td>
+                        <div class="word">Chỉ đạo</div>
+
+                        <select class="score-select">
+                            <option value="">Chọn điểm</option>
+                            <option value="4">4</option>
+                            <option value="3">3</option>
+                            <option value="2">2</option>
+                            <option value="1">1</option>
+                        </select>
                     </td>
 
-                    <td class="total-label">
-                        Tổng điểm
+
+                    <td>
+                        <div class="word">Có ảnh hưởng</div>
+
+                        <select class="score-select">
+                            <option value="">Chọn điểm</option>
+                            <option value="4">4</option>
+                            <option value="3">3</option>
+                            <option value="2">2</option>
+                            <option value="1">1</option>
+                        </select>
                     </td>
 
-                    <td class="total-label">
-                        Tổng điểm
+
+                    <td>
+                        <div class="word">Chắc chắn</div>
+
+                        <select class="score-select">
+                            <option value="">Chọn điểm</option>
+                            <option value="4">4</option>
+                            <option value="3">3</option>
+                            <option value="2">2</option>
+                            <option value="1">1</option>
+                        </select>
                     </td>
 
-                    <td class="total-label">
-                        Tổng điểm
+
+                    <td>
+                        <div class="word">Cẩn thận</div>
+
+                        <select class="score-select">
+                            <option value="">Chọn điểm</option>
+                            <option value="4">4</option>
+                            <option value="3">3</option>
+                            <option value="2">2</option>
+                            <option value="1">1</option>
+                        </select>
                     </td>
 
                 </tr>
 
-                <tr>
 
-                    <td
-                        id="total1"
-                        class="total-cell"
-                    >
-                        0
+                <!-- ROW 2 -->
+
+                <tr data-row="2">
+
+                    <td>
+                        <div class="word">Quyết đoán</div>
+
+                        <select class="score-select">
+                            <option value="">Chọn điểm</option>
+                            <option value="4">4</option>
+                            <option value="3">3</option>
+                            <option value="2">2</option>
+                            <option value="1">1</option>
+                        </select>
                     </td>
 
-                    <td
-                        id="total2"
-                        class="total-cell"
-                    >
-                        0
+
+                    <td>
+                        <div class="word">Lạc quan</div>
+
+                        <select class="score-select">
+                            <option value="">Chọn điểm</option>
+                            <option value="4">4</option>
+                            <option value="3">3</option>
+                            <option value="2">2</option>
+                            <option value="1">1</option>
+                        </select>
                     </td>
 
-                    <td
-                        id="total3"
-                        class="total-cell"
-                    >
-                        0
+
+                    <td>
+                        <div class="word">Kiên nhẫn</div>
+
+                        <select class="score-select">
+                            <option value="">Chọn điểm</option>
+                            <option value="4">4</option>
+                            <option value="3">3</option>
+                            <option value="2">2</option>
+                            <option value="1">1</option>
+                        </select>
                     </td>
 
-                    <td
-                        id="total4"
-                        class="total-cell"
-                    >
-                        0
-                    </td>
 
-                </tr>
-
-            </tfoot>
-
-        </table>
-
-    </div>
-
-
-    <!-- ERROR -->
-
-    <div
-        id="errorMessage"
-        class="error-message"
-    ></div>
-
-
-    <!-- BUTTONS -->
-
-    <div class="actions">
-
-        <button
-            type="button"
-            class="btn-result"
-            onclick="showResult()"
-        >
-            Xem kết quả
-        </button>
-
-
-        <button
-            type="button"
-            class="btn-reset"
-            onclick="resetQuiz()"
-        >
-            Làm lại
-        </button>
-
-    </div>
-
-
-    <!-- RESULT -->
-
-    <section
-        id="result"
-        class="result"
-    >
-
-        <h2>KẾT QUẢ CỦA BẠN</h2>
-
-
-        <div class="winner">
-
-            <div class="winner-title">
-                Phong cách nổi bật của bạn
-            </div>
-
-            <div
-                id="winnerGroup"
-                class="winner-group"
-            >
-            </div>
-
-            <div
-                id="winnerScore"
-                class="winner-score"
-            >
-            </div>
-
-        </div>
-
-
-        <!-- SCORE CARDS -->
-
-        <div class="score-grid">
-
-            <div class="score-card">
-
-                <div class="name">
-                    Nhóm 1
-                </div>
-
-                <div
-                    id="result1"
-                    class="number"
-                >
-                    0
-                </div>
-
-            </div>
-
-
-            <div class="score-card">
-
-                <div class="name">
-                    Nhóm 2
-                </div>
-
-                <div
-                    id="result2"
-                    class="number"
-                >
-                    0
-                </div>
-
-            </div>
-
-
-            <div class="score-card">
-
-                <div class="name">
-                    Nhóm 3
-                </div>
-
-                <div
-                    id="result3"
-                    class="number"
-                >
-                    0
-                </div>
-
-            </div>
-
-
-            <div class="score-card">
-
-                <div class="name">
-                    Nhóm 4
-                </div>
-
-                <div
-                    id="result4"
-                    class="number"
-                >
-                    0
-                </div>
-
-            </div>
-
-        </div>
-
-
-        <!-- CHART -->
-
-        <div class="chart-title">
-            Biểu đồ điểm
-        </div>
-
-
-        <div class="chart">
-
-            <div class="bar-row">
-
-                <div class="bar-name">
-                    Nhóm 1
-                </div>
-
-                <div class="bar-container">
-
-                    <div
-                        id="bar1"
-                        class="bar"
-                    ></div>
-
-                </div>
-
-                <div
-                    id="barValue1"
-                    class="bar-value"
-                >
-                    0
-                </div>
-
-            </div>
-
-
-            <div class="bar-row">
-
-                <div class="bar-name">
-                    Nhóm 2
-                </div>
-
-                <div class="bar-container">
-
-                    <div
-                        id="bar2"
-                        class="bar"
-                    ></div>
-
-                </div>
-
-                <div
-                    id="barValue2"
-                    class="bar-value"
-                >
-                    0
-                </div>
-
-            </div>
-
-
-            <div class="bar-row">
-
-                <div class="bar-name">
-                    Nhóm 3
-                </div>
-
-                <div class="bar-container">
-
-                   
+                    <td>
+                        <div class="word">Dễ đặt</div>
+
+                        <select class="score-select">
+                            <option value="">Chọn điểm</option>
+                            <option value="4">4</option>
+                            <option value="3">3</option>
+                            <option value="2">
