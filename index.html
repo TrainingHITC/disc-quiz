@@ -1,99 +1,88 @@
 <!DOCTYPE html>
 <html lang="vi">
-
 <head>
-
 <meta charset="UTF-8">
-
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <title>Discover Your Style</title>
-
 
 <style>
 
 body{
     font-family: Arial, sans-serif;
-    background:#f4f7fb;
+    background:#f5f7fb;
     margin:0;
     padding:20px;
 }
 
-
 .container{
-    max-width:900px;
+    max-width:1000px;
     margin:auto;
     background:white;
     padding:30px;
-    border-radius:18px;
-    box-shadow:0 5px 20px rgba(0,0,0,0.08);
+    border-radius:16px;
+    box-shadow:0 5px 20px rgba(0,0,0,0.1);
 }
-
 
 h1{
     text-align:center;
     color:#003b70;
 }
 
-
-.subtitle{
+.note{
     text-align:center;
-    color:#555;
     margin-bottom:30px;
 }
 
+table{
+    width:100%;
+    border-collapse:collapse;
+    margin-bottom:30px;
+}
 
-.group{
-    margin-top:30px;
-    padding:20px;
-    border-radius:12px;
-    background:#f8fafc;
+th{
+    background:#eaf2f8;
+    padding:12px;
+}
+
+td{
+    border:1px solid #ddd;
+    padding:12px;
+    text-align:center;
+}
+
+td:first-child{
+    text-align:left;
+    font-weight:500;
 }
 
 
-.group h2{
-    color:#003b70;
+input[type="radio"]{
+    transform:scale(1.3);
+    cursor:pointer;
 }
 
 
-.item{
-    display:flex;
-    justify-content:space-between;
-    align-items:center;
-    padding:12px 0;
-    border-bottom:1px solid #ddd;
-}
+.group-title{
 
-
-select{
-
-padding:8px;
-
+background:#003b70;
+color:white;
+padding:12px;
+margin-top:25px;
 border-radius:8px;
-
-font-size:16px;
 
 }
 
 
 button{
 
-margin-top:30px;
-
 width:100%;
-
 padding:15px;
-
 background:#0066cc;
-
 color:white;
-
 border:none;
-
 border-radius:10px;
-
 font-size:18px;
-
 cursor:pointer;
 
 }
@@ -109,35 +98,25 @@ background:#004c99;
 .result{
 
 display:none;
-
 margin-top:30px;
-
 padding:25px;
-
 background:#eef6ff;
-
-border-radius:15px;
-
-font-size:18px;
+border-radius:12px;
 
 }
 
 
-
 .score{
 
-font-size:20px;
-
+font-size:18px;
 font-weight:bold;
 
 }
 
 
-
 </style>
 
 </head>
-
 
 
 <body>
@@ -151,18 +130,24 @@ DISCOVER YOUR STYLE
 </h1>
 
 
-<div class="subtitle">
+<div class="note">
 
+<p>
 Khám phá phong cách làm việc của bạn
+</p>
 
-<br>
+<p>
+Hãy chấm điểm theo mức độ phù hợp với bản thân:
+</p>
 
-Hãy chấm điểm từng đặc điểm theo mức độ phù hợp với bản thân.
-
-<br><br>
-
-1 - Không giống tôi &nbsp;&nbsp;
-5 - Giống tôi nhất
+<p>
+<strong>
+4 - Giống với mình nhất &nbsp;&nbsp;
+3 - Gần giống mình &nbsp;&nbsp;
+2 - Ít giống hơn &nbsp;&nbsp;
+1 - Ít giống nhất
+</strong>
+</p>
 
 </div>
 
@@ -171,216 +156,275 @@ Hãy chấm điểm từng đặc điểm theo mức độ phù hợp với bả
 <form id="quiz">
 
 
-
-<!-- NHÓM 1 -->
-
-
-<div class="group">
-
-
-<h2>
+<div class="group-title">
 Nhóm 1
-</h2>
-
-
-<div class="item">
-<span>Chỉ đạo</span>
-<select class="g1">
-<option value="0">--</option>
-<option>1</option>
-<option>2</option>
-<option>3</option>
-<option>4</option>
-<option>5</option>
-</select>
 </div>
 
 
-<div class="item">
-<span>Quyết đoán</span>
-<select class="g1">
-<option value="0">--</option>
-<option>1</option>
-<option>2</option>
-<option>3</option>
-<option>4</option>
-<option>5</option>
-</select>
-</div>
+<table>
+
+<tr>
+<th>Đặc điểm</th>
+<th>4</th>
+<th>3</th>
+<th>2</th>
+<th>1</th>
+</tr>
 
 
-<div class="item">
-<span>Dám làm</span>
-<select class="g1">
-<option value="0">--</option>
-<option>1</option>
-<option>2</option>
-<option>3</option>
-<option>4</option>
-<option>5</option>
-</select>
-</div>
+<tr>
+<td>Chỉ đạo</td>
+<td><input type="radio" name="g1_1" value="4"></td>
+<td><input type="radio" name="g1_1" value="3"></td>
+<td><input type="radio" name="g1_1" value="2"></td>
+<td><input type="radio" name="g1_1" value="1"></td>
+</tr>
 
 
-<div class="item">
-<span>Thích cạnh tranh</span>
-<select class="g1">
-<option value="0">--</option>
-<option>1</option>
-<option>2</option>
-<option>3</option>
-<option>4</option>
-<option>5</option>
-</select>
-</div>
+<tr>
+<td>Quyết đoán</td>
+<td><input type="radio" name="g1_2" value="4"></td>
+<td><input type="radio" name="g1_2" value="3"></td>
+<td><input type="radio" name="g1_2" value="2"></td>
+<td><input type="radio" name="g1_2" value="1"></td>
+</tr>
 
 
-<div class="item">
-<span>Mạnh mẽ</span>
-<select class="g1">
-<option value="0">--</option>
-<option>1</option>
-<option>2</option>
-<option>3</option>
-<option>4</option>
-<option>5</option>
-</select>
-</div>
+<tr>
+<td>Dám làm</td>
+<td><input type="radio" name="g1_3" value="4"></td>
+<td><input type="radio" name="g1_3" value="3"></td>
+<td><input type="radio" name="g1_3" value="2"></td>
+<td><input type="radio" name="g1_3" value="1"></td>
+</tr>
 
 
-</div>
+<tr>
+<td>Thích cạnh tranh</td>
+<td><input type="radio" name="g1_4" value="4"></td>
+<td><input type="radio" name="g1_4" value="3"></td>
+<td><input type="radio" name="g1_4" value="2"></td>
+<td><input type="radio" name="g1_4" value="1"></td>
+</tr>
+
+
+<tr>
+<td>Mạnh mẽ</td>
+<td><input type="radio" name="g1_5" value="4"></td>
+<td><input type="radio" name="g1_5" value="3"></td>
+<td><input type="radio" name="g1_5" value="2"></td>
+<td><input type="radio" name="g1_5" value="1"></td>
+</tr>
+
+
+</table>
 
 
 
 
-<!-- NHÓM 2 -->
 
-
-<div class="group">
-
-
-<h2>
+<div class="group-title">
 Nhóm 2
-</h2>
-
-
-<div class="item"><span>Có ảnh hưởng</span>
-<select class="g2"><option value="0">--</option><option>1</option><option>2</option><option>3</option><option>4</option><option>5</option></select>
 </div>
 
 
-<div class="item"><span>Lạc quan</span>
-<select class="g2"><option value="0">--</option><option>1</option><option>2</option><option>3</option><option>4</option><option>5</option></select>
-</div>
+<table>
+
+<tr>
+<th>Đặc điểm</th>
+<th>4</th>
+<th>3</th>
+<th>2</th>
+<th>1</th>
+</tr>
 
 
-<div class="item"><span>Nhiệt tình</span>
-<select class="g2"><option value="0">--</option><option>1</option><option>2</option><option>3</option><option>4</option><option>5</option></select>
-</div>
+<tr>
+<td>Có ảnh hưởng</td>
+<td><input type="radio" name="g2_1" value="4"></td>
+<td><input type="radio" name="g2_1" value="3"></td>
+<td><input type="radio" name="g2_1" value="2"></td>
+<td><input type="radio" name="g2_1" value="1"></td>
+</tr>
+
+<tr>
+<td>Lạc quan</td>
+<td><input type="radio" name="g2_2" value="4"></td>
+<td><input type="radio" name="g2_2" value="3"></td>
+<td><input type="radio" name="g2_2" value="2"></td>
+<td><input type="radio" name="g2_2" value="1"></td>
+</tr>
 
 
-<div class="item"><span>Hay nói</span>
-<select class="g2"><option value="0">--</option><option>1</option><option>2</option><option>3</option><option>4</option><option>5</option></select>
-</div>
+<tr>
+<td>Nhiệt tình</td>
+<td><input type="radio" name="g2_3" value="4"></td>
+<td><input type="radio" name="g2_3" value="3"></td>
+<td><input type="radio" name="g2_3" value="2"></td>
+<td><input type="radio" name="g2_3" value="1"></td>
+</tr>
 
 
-<div class="item"><span>Duyên dáng</span>
-<select class="g2"><option value="0">--</option><option>1</option><option>2</option><option>3</option><option>4</option><option>5</option></select>
-</div>
+<tr>
+<td>Hay nói</td>
+<td><input type="radio" name="g2_4" value="4"></td>
+<td><input type="radio" name="g2_4" value="3"></td>
+<td><input type="radio" name="g2_4" value="2"></td>
+<td><input type="radio" name="g2_4" value="1"></td>
+</tr>
 
 
-</div>
+<tr>
+<td>Duyên dáng</td>
+<td><input type="radio" name="g2_5" value="4"></td>
+<td><input type="radio" name="g2_5" value="3"></td>
+<td><input type="radio" name="g2_5" value="2"></td>
+<td><input type="radio" name="g2_5" value="1"></td>
+</tr>
+
+
+</table>
 
 
 
 
 
-<!-- NHÓM 3 -->
 
-
-<div class="group">
-
-
-<h2>
+<div class="group-title">
 Nhóm 3
-</h2>
-
-
-<div class="item"><span>Chắc chắn</span>
-<select class="g3"><option value="0">--</option><option>1</option><option>2</option><option>3</option><option>4</option><option>5</option></select>
 </div>
 
 
-<div class="item"><span>Kiên nhẫn</span>
-<select class="g3"><option value="0">--</option><option>1</option><option>2</option><option>3</option><option>4</option><option>5</option></select>
-</div>
+<table>
+
+<tr>
+<th>Đặc điểm</th>
+<th>4</th>
+<th>3</th>
+<th>2</th>
+<th>1</th>
+</tr>
 
 
-<div class="item"><span>Ổn định</span>
-<select class="g3"><option value="0">--</option><option>1</option><option>2</option><option>3</option><option>4</option><option>5</option></select>
-</div>
+<tr>
+<td>Chắc chắn</td>
+<td><input type="radio" name="g3_1" value="4"></td>
+<td><input type="radio" name="g3_1" value="3"></td>
+<td><input type="radio" name="g3_1" value="2"></td>
+<td><input type="radio" name="g3_1" value="1"></td>
+</tr>
 
 
-<div class="item"><span>Hay giúp đỡ</span>
-<select class="g3"><option value="0">--</option><option>1</option><option>2</option><option>3</option><option>4</option><option>5</option></select>
-</div>
+<tr>
+<td>Kiên nhẫn</td>
+<td><input type="radio" name="g3_2" value="4"></td>
+<td><input type="radio" name="g3_2" value="3"></td>
+<td><input type="radio" name="g3_2" value="2"></td>
+<td><input type="radio" name="g3_2" value="1"></td>
+</tr>
 
 
-<div class="item"><span>Dễ tính</span>
-<select class="g3"><option value="0">--</option><option>1</option><option>2</option><option>3</option><option>4</option><option>5</option></select>
-</div>
+<tr>
+<td>Ổn định</td>
+<td><input type="radio" name="g3_3" value="4"></td>
+<td><input type="radio" name="g3_3" value="3"></td>
+<td><input type="radio" name="g3_3" value="2"></td>
+<td><input type="radio" name="g3_3" value="1"></td>
+</tr>
 
 
-</div>
+<tr>
+<td>Hay giúp đỡ</td>
+<td><input type="radio" name="g3_4" value="4"></td>
+<td><input type="radio" name="g3_4" value="3"></td>
+<td><input type="radio" name="g3_4" value="2"></td>
+<td><input type="radio" name="g3_4" value="1"></td>
+</tr>
+
+
+<tr>
+<td>Dễ tính</td>
+<td><input type="radio" name="g3_5" value="4"></td>
+<td><input type="radio" name="g3_5" value="3"></td>
+<td><input type="radio" name="g3_5" value="2"></td>
+<td><input type="radio" name="g3_5" value="1"></td>
+</tr>
+
+</table>
 
 
 
 
 
-<!-- NHÓM 4 -->
 
-
-<div class="group">
-
-
-<h2>
+<div class="group-title">
 Nhóm 4
-</h2>
-
-
-<div class="item"><span>Cẩn thận</span>
-<select class="g4"><option value="0">--</option><option>1</option><option>2</option><option>3</option><option>4</option><option>5</option></select>
 </div>
 
 
-<div class="item"><span>Dễ đặt</span>
-<select class="g4"><option value="0">--</option><option>1</option><option>2</option><option>3</option><option>4</option><option>5</option></select>
-</div>
+<table>
+
+<tr>
+<th>Đặc điểm</th>
+<th>4</th>
+<th>3</th>
+<th>2</th>
+<th>1</th>
+</tr>
 
 
-<div class="item"><span>Có phân tích</span>
-<select class="g4"><option value="0">--</option><option>1</option><option>2</option><option>3</option><option>4</option><option>5</option></select>
-</div>
+<tr>
+<td>Cẩn thận</td>
+<td><input type="radio" name="g4_1" value="4"></td>
+<td><input type="radio" name="g4_1" value="3"></td>
+<td><input type="radio" name="g4_1" value="2"></td>
+<td><input type="radio" name="g4_1" value="1"></td>
+</tr>
 
 
-<div class="item"><span>Chính xác</span>
-<select class="g4"><option value="0">--</option><option>1</option><option>2</option><option>3</option><option>4</option><option>5</option></select>
-</div>
+<tr>
+<td>Dễ đặt</td>
+<td><input type="radio" name="g4_2" value="4"></td>
+<td><input type="radio" name="g4_2" value="3"></td>
+<td><input type="radio" name="g4_2" value="2"></td>
+<td><input type="radio" name="g4_2" value="1"></td>
+</tr>
 
 
-<div class="item"><span>Tò mò</span>
-<select class="g4"><option value="0">--</option><option>1</option><option>2</option><option>3</option><option>4</option><option>5</option></select>
-</div>
+<tr>
+<td>Có phân tích</td>
+<td><input type="radio" name="g4_3" value="4"></td>
+<td><input type="radio" name="g4_3" value="3"></td>
+<td><input type="radio" name="g4_3" value="2"></td>
+<td><input type="radio" name="g4_3" value="1"></td>
+</tr>
 
 
-</div>
+<tr>
+<td>Chính xác</td>
+<td><input type="radio" name="g4_4" value="4"></td>
+<td><input type="radio" name="g4_4" value="3"></td>
+<td><input type="radio" name="g4_4" value="2"></td>
+<td><input type="radio" name="g4_4" value="1"></td>
+</tr>
+
+
+<tr>
+<td>Tò mò</td>
+<td><input type="radio" name="g4_5" value="4"></td>
+<td><input type="radio" name="g4_5" value="3"></td>
+<td><input type="radio" name="g4_5" value="2"></td>
+<td><input type="radio" name="g4_5" value="1"></td>
+</tr>
+
+
+</table>
 
 
 
 <button type="button" onclick="calculate()">
 Xem kết quả
 </button>
-
 
 
 </form>
@@ -394,23 +438,21 @@ Xem kết quả
 </div>
 
 
-
-
-
 <script>
 
 
-function sum(group){
+function total(prefix){
 
-let total=0;
+let sum=0;
 
-document.querySelectorAll(group).forEach(x=>{
-
-total += Number(x.value);
-
+document.querySelectorAll(
+'input[name^="'+prefix+'"]:checked'
+)
+.forEach(e=>{
+sum += Number(e.value);
 });
 
-return total;
+return sum;
 
 }
 
@@ -419,84 +461,34 @@ return total;
 function calculate(){
 
 
-let g1=sum(".g1");
-let g2=sum(".g2");
-let g3=sum(".g3");
-let g4=sum(".g4");
+let g1=total("g1");
+let g2=total("g2");
+let g3=total("g3");
+let g4=total("g4");
 
 
-
-let scores={
-
-"Nhóm 1":g1,
-
-"Nhóm 2":g2,
-
-"Nhóm 3":g3,
-
-"Nhóm 4":g4
-
-};
+let result=document.getElementById("result");
 
 
-let max=Math.max(g1,g2,g3,g4);
+result.style.display="block";
 
 
-
-let mainGroup=
-Object.keys(scores).find(
-key=>scores[key]===max
-);
-
-
-
-document.getElementById("result").style.display="block";
-
-
-document.getElementById("result").innerHTML=`
+result.innerHTML=`
 
 <h2>Kết quả của bạn</h2>
 
-<p class="score">
-Nhóm 1: ${g1} điểm
-</p>
-
-<p class="score">
-Nhóm 2: ${g2} điểm
-</p>
-
-<p class="score">
-Nhóm 3: ${g3} điểm
-</p>
-
-<p class="score">
-Nhóm 4: ${g4} điểm
-</p>
-
-
-<hr>
-
-
-<h2>
-Phong cách nổi bật:
-${mainGroup}
-</h2>
-
-
-<p>
-Nhóm có điểm cao nhất thể hiện xu hướng
-phong cách làm việc nổi bật của bạn.
-</p>
+<p class="score">Nhóm 1: ${g1} điểm</p>
+<p class="score">Nhóm 2: ${g2} điểm</p>
+<p class="score">Nhóm 3: ${g3} điểm</p>
+<p class="score">Nhóm 4: ${g4} điểm</p>
 
 `;
 
 }
 
 
-
 </script>
 
 
 </body>
-
 </html>
