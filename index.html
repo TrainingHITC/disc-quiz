@@ -14,25 +14,27 @@
 }
 
 body{
-    font-family:Arial,sans-serif;
-    background:#f5f7fb;
-    padding:20px;
     margin:0;
+    padding:20px;
+    font-family:Arial, sans-serif;
+    background:#f5f7fb;
+    color:#222;
 }
 
 .container{
     max-width:1100px;
     margin:auto;
-    background:white;
+    background:#ffffff;
     padding:30px;
-    border-radius:15px;
+    border-radius:16px;
     box-shadow:0 4px 20px rgba(0,0,0,0.06);
 }
 
 h1{
+    margin:0 0 20px;
     text-align:center;
     color:#003b70;
-    margin-top:0;
+    font-size:30px;
 }
 
 .note{
@@ -42,10 +44,20 @@ h1{
 }
 
 .note p{
-    margin:5px 0;
+    margin:6px 0;
+}
+
+.guide{
+    margin-top:15px;
+    padding:12px 15px;
+    background:#f0f6fc;
+    border-radius:10px;
+    color:#003b70;
+    font-size:14px;
 }
 
 .table-wrap{
+    width:100%;
     overflow-x:auto;
 }
 
@@ -53,7 +65,6 @@ table{
     width:100%;
     border-collapse:collapse;
     margin-top:25px;
-    min-width:800px;
 }
 
 th{
@@ -64,57 +75,60 @@ th{
 }
 
 td{
-    border:1px solid #ddd;
-    padding:15px 10px;
-    text-align:center;
-    vertical-align:top;
     width:25%;
+    border:1px solid #dde3ea;
+    padding:15px 12px;
+    text-align:center;
+    vertical-align:middle;
 }
 
 .name{
-    font-weight:bold;
-    font-size:16px;
     min-height:40px;
     display:flex;
     align-items:center;
     justify-content:center;
+    margin-bottom:10px;
+    font-size:16px;
+    font-weight:bold;
     color:#222;
 }
 
-.score-options{
-    margin-top:12px;
-    display:flex;
-    justify-content:center;
-    gap:12px;
-    flex-wrap:wrap;
-}
+/* DROPDOWN ĐIỂM */
 
-.score-option{
-    display:flex;
-    align-items:center;
-    gap:4px;
-    cursor:pointer;
-    font-size:15px;
+.score-select{
+    width:100%;
+    max-width:130px;
+    height:42px;
+    padding:0 10px;
+    border:1px solid #c7d1dc;
+    border-radius:8px;
+    background:#fff;
+    font-size:16px;
     font-weight:bold;
-}
-
-.score-option input{
-    transform:scale(1.25);
+    color:#333;
     cursor:pointer;
+    outline:none;
 }
 
-.score-option input:disabled{
-    cursor:not-allowed;
+.score-select:focus{
+    border-color:#0066cc;
+    box-shadow:0 0 0 2px rgba(0,102,204,0.1);
+}
+
+.score-select.selected{
+    border-color:#0066cc;
+    background:#eef6ff;
+    color:#003b70;
 }
 
 button{
-    margin-top:30px;
     width:100%;
+    margin-top:30px;
     padding:15px;
-    background:#0066cc;
     border:0;
-    color:white;
     border-radius:10px;
+    background:#0066cc;
+    color:white;
     font-size:18px;
     font-weight:bold;
     cursor:pointer;
@@ -127,15 +141,15 @@ button:hover{
 .result{
     display:none;
     margin-top:30px;
-    background:#eef6ff;
     padding:25px;
+    background:#eef6ff;
     border-radius:12px;
 }
 
 .result h2{
+    margin-top:0;
     text-align:center;
     color:#003b70;
-    margin-top:0;
 }
 
 .total-grid{
@@ -146,21 +160,21 @@ button:hover{
 }
 
 .total-card{
-    background:white;
-    border-radius:10px;
     padding:18px 10px;
     text-align:center;
+    background:white;
+    border-radius:10px;
     box-shadow:0 2px 8px rgba(0,0,0,0.06);
 }
 
 .total-title{
+    margin-bottom:8px;
     font-size:15px;
     color:#555;
-    margin-bottom:8px;
 }
 
 .total-score{
-    font-size:26px;
+    font-size:28px;
     font-weight:bold;
     color:#003b70;
 }
@@ -171,59 +185,206 @@ button:hover{
 
 .chart-row{
     display:grid;
-    grid-template-columns:80px 1fr 60px;
-    align-items:center;
+    grid-template-columns:80px 1fr 55px;
     gap:10px;
+    align-items:center;
     margin:14px 0;
 }
 
 .chart-label{
     font-weight:bold;
-    color:#333;
 }
 
 .chart-track{
     height:28px;
+    overflow:hidden;
     background:#dce5ef;
     border-radius:20px;
-    overflow:hidden;
 }
 
 .chart-bar{
-    height:100%;
     width:0;
+    height:100%;
     background:#0066cc;
     border-radius:20px;
     transition:width 0.6s ease;
 }
 
 .chart-value{
-    font-weight:bold;
     text-align:right;
+    font-weight:bold;
     color:#003b70;
 }
 
 .error-row td{
-    background:#fff1f1;
+    background:#fff2f2;
 }
+
+
+/* =========================
+   MOBILE
+========================= */
 
 @media(max-width:700px){
 
     body{
-        padding:10px;
+        padding:8px;
     }
 
     .container{
-        padding:18px;
+        width:100%;
+        padding:16px 12px;
+        border-radius:12px;
+    }
+
+    h1{
+        font-size:23px;
+        margin-bottom:14px;
+    }
+
+    .note{
+        font-size:13px;
+        line-height:1.5;
+    }
+
+    .guide{
+        padding:10px;
+        font-size:12px;
+    }
+
+    .table-wrap{
+        overflow:visible;
+    }
+
+    table{
+        display:block;
+        width:100%;
+        margin-top:16px;
+    }
+
+    thead{
+        display:none;
+    }
+
+    tbody{
+        display:block;
+        width:100%;
+    }
+
+    tbody tr{
+        display:block;
+        width:100%;
+        margin-bottom:14px;
+        padding:8px 10px;
+        background:#f8fafc;
+        border:1px solid #e0e6ed;
+        border-radius:12px;
+    }
+
+    tbody td{
+        display:grid;
+        grid-template-columns:1fr 100px;
+        align-items:center;
+        gap:10px;
+
+        width:100%;
+        padding:10px 4px;
+
+        border:none;
+        border-bottom:1px solid #e6ebf0;
+
+        text-align:left;
+    }
+
+    tbody td:last-child{
+        border-bottom:none;
+    }
+
+    .name{
+        display:block;
+        min-height:0;
+        margin:0;
+        text-align:left;
+        font-size:15px;
+    }
+
+    .name::before{
+        content:attr(data-group);
+        display:block;
+        margin-bottom:3px;
+        font-size:10px;
+        line-height:1.2;
+        font-weight:bold;
+        color:#0066cc;
+        text-transform:uppercase;
+    }
+
+    .score-select{
+        width:100px;
+        max-width:none;
+        height:38px;
+        padding:0 6px;
+        font-size:14px;
+        border-radius:7px;
+    }
+
+    button{
+        margin-top:18px;
+        padding:14px;
+        font-size:16px;
+    }
+
+    .result{
+        padding:15px;
     }
 
     .total-grid{
         grid-template-columns:repeat(2,1fr);
+        gap:8px;
+    }
+
+    .total-card{
+        padding:12px 6px;
+    }
+
+    .total-title{
+        font-size:13px;
+    }
+
+    .total-score{
+        font-size:23px;
+    }
+
+    .chart-row{
+        grid-template-columns:58px 1fr 35px;
+        gap:6px;
+        font-size:12px;
+    }
+
+    .chart-track{
+        height:20px;
+    }
+
+}
+
+
+/* MOBILE RẤT NHỎ */
+
+@media(max-width:380px){
+
+    tbody td{
+        grid-template-columns:1fr 85px;
+    }
+
+    .score-select{
+        width:85px;
+        font-size:13px;
     }
 
 }
 
 </style>
+
 </head>
 
 
@@ -235,23 +396,27 @@ button:hover{
 
 <div class="note">
 
-<p>
-Hãy đánh giá mức độ phù hợp của từng đặc điểm.
-</p>
+    <p>
+        Hãy đánh giá mức độ phù hợp của từng đặc điểm.
+    </p>
 
-<p>
-Trong <b>mỗi hàng</b>, hãy phân bổ đủ 4 mức điểm và không được trùng:
-</p>
+    <p>
+        Trong mỗi hàng, hãy phân bổ đủ các mức điểm:
+    </p>
 
-<p>
-<b>
-4 điểm - Giống mình nhất |
-3 điểm - Gần giống |
-2 điểm - Ít giống |
-1 điểm - Ít giống nhất
-</b>
-</p>
+    <p>
+        <b>
+            4 - Giống mình nhất |
+            3 - Gần giống |
+            2 - Ít giống |
+            1 - Ít giống nhất
+        </b>
+    </p>
 
+</div>
+
+<div class="guide">
+    Mỗi hàng phải sử dụng đủ 4 mức điểm 1, 2, 3, 4 và không được lặp lại cùng một mức điểm.
 </div>
 
 
@@ -262,10 +427,10 @@ Trong <b>mỗi hàng</b>, hãy phân bổ đủ 4 mức điểm và không đư�
 <thead>
 
 <tr>
-<th>Nhóm 1</th>
-<th>Nhóm 2</th>
-<th>Nhóm 3</th>
-<th>Nhóm 4</th>
+    <th>Nhóm 1</th>
+    <th>Nhóm 2</th>
+    <th>Nhóm 3</th>
+    <th>Nhóm 4</th>
 </tr>
 
 </thead>
@@ -278,7 +443,7 @@ Trong <b>mỗi hàng</b>, hãy phân bổ đủ 4 mức điểm và không đư�
 
 
 <button onclick="calculate()">
-Xem kết quả
+    Xem kết quả
 </button>
 
 
@@ -288,6 +453,10 @@ Xem kết quả
 
 
 <script>
+
+/* =========================
+   DỮ LIỆU CÂU HỎI
+========================= */
 
 const data = [
 
@@ -329,12 +498,19 @@ const data = [
 ];
 
 
+/* =========================
+   TẠO BẢNG
+========================= */
+
 let html = "";
 
 
 data.forEach((row, rowIndex) => {
 
-    html += `<tr id="row-${rowIndex}">`;
+    html += `
+        <tr id="row-${rowIndex}">
+    `;
+
 
     row.forEach((item, colIndex) => {
 
@@ -342,32 +518,43 @@ data.forEach((row, rowIndex) => {
 
         <td>
 
-            <div class="name">
+            <div
+                class="name"
+                data-group="Nhóm ${colIndex + 1}"
+            >
                 ${item}
             </div>
 
-            <div class="score-options">
 
-                ${[4,3,2,1].map(score => `
+            <select
+                class="score-select"
+                id="select-${rowIndex}-${colIndex}"
+                data-row="${rowIndex}"
+                data-col="${colIndex}"
+                onchange="handleSelection(${rowIndex}, this)"
+            >
 
-                    <label class="score-option">
+                <option value="">
+                    Chọn điểm
+                </option>
 
-                        ${score}
+                <option value="4">
+                    4 điểm
+                </option>
 
-                        <input
-                            type="radio"
-                            name="row${rowIndex}_col${colIndex}"
-                            value="${score}"
-                            data-row="${rowIndex}"
-                            data-col="${colIndex}"
-                            onchange="handleSelection(${rowIndex})"
-                        >
+                <option value="3">
+                    3 điểm
+                </option>
 
-                    </label>
+                <option value="2">
+                    2 điểm
+                </option>
 
-                `).join("")}
+                <option value="1">
+                    1 điểm
+                </option>
 
-            </div>
+            </select>
 
         </td>
 
@@ -375,7 +562,10 @@ data.forEach((row, rowIndex) => {
 
     });
 
-    html += `</tr>`;
+
+    html += `
+        </tr>
+    `;
 
 });
 
@@ -383,94 +573,116 @@ data.forEach((row, rowIndex) => {
 document.getElementById("quizTable").innerHTML = html;
 
 
-/*
-================================================
-KIỂM SOÁT KHÔNG CHO TRÙNG ĐIỂM TRONG CÙNG HÀNG
-================================================
-*/
+/* =========================
+   XỬ LÝ KHI CHỌN ĐIỂM
+========================= */
 
-function handleSelection(rowIndex){
+function handleSelection(rowIndex, changedSelect){
 
-    const row = document.getElementById("row-" + rowIndex);
+    const row =
+        document.getElementById("row-" + rowIndex);
+
 
     row.classList.remove("error-row");
 
 
     /*
-    Lấy các điểm hiện đang được chọn trong hàng
+    Thêm style cho dropdown đã chọn
     */
 
-    const checked = document.querySelectorAll(
-        `input[data-row="${rowIndex}"]:checked`
-    );
+    if(changedSelect.value !== ""){
+
+        changedSelect.classList.add("selected");
+
+    }else{
+
+        changedSelect.classList.remove("selected");
+
+    }
 
 
-    const selectedScores = [];
+    /*
+    Lấy tất cả dropdown trong hàng
+    */
 
-    checked.forEach(input => {
+    const selects =
+        document.querySelectorAll(
+            `.score-select[data-row="${rowIndex}"]`
+        );
 
-        selectedScores.push({
-            score: input.value,
-            col: input.dataset.col
-        });
+
+    /*
+    Lấy các điểm đã được chọn
+    */
+
+    const selectedValues = [];
+
+
+    selects.forEach(select => {
+
+        if(select.value !== ""){
+
+            selectedValues.push(select.value);
+
+        }
 
     });
 
 
     /*
-    Duyệt toàn bộ radio của hàng
+    Disable điểm đã được dùng
+    ở dropdown khác
     */
 
-    const allInputs = document.querySelectorAll(
-        `input[data-row="${rowIndex}"]`
-    );
+    selects.forEach(select => {
 
 
-    allInputs.forEach(input => {
-
-        /*
-        Radio đang được chọn thì luôn giữ hoạt động
-        */
-
-        if(input.checked){
-
-            input.disabled = false;
-            return;
-
-        }
+        Array.from(select.options).forEach(option => {
 
 
-        const currentCol = input.dataset.col;
-        const currentScore = input.value;
+            /*
+            Không xử lý option "Chọn điểm"
+            */
+
+            if(option.value === ""){
+
+                option.disabled = false;
+                return;
+
+            }
 
 
-        /*
-        Kiểm tra điểm này đã được dùng
-        ở một cột khác chưa
-        */
+            /*
+            Điểm hiện tại của chính dropdown
+            luôn được phép hiển thị
+            */
 
-        const usedInOtherColumn = selectedScores.some(item => {
+            if(option.value === select.value){
 
-            return (
-                item.score === currentScore &&
-                item.col !== currentCol
-            );
+                option.disabled = false;
+                return;
+
+            }
+
+
+            /*
+            Nếu điểm đã được dùng ở ô khác
+            thì khóa
+            */
+
+            option.disabled =
+                selectedValues.includes(option.value);
 
         });
-
-
-        input.disabled = usedInOtherColumn;
 
     });
 
 }
 
 
-/*
-================================================
-TÍNH KẾT QUẢ
-================================================
-*/
+/* =========================
+   TÍNH KẾT QUẢ
+========================= */
 
 function calculate(){
 
@@ -480,78 +692,104 @@ function calculate(){
 
 
     /*
-    Xóa trạng thái báo lỗi cũ
+    Xóa báo lỗi cũ
     */
 
-    document.querySelectorAll("tr").forEach(row => {
+    document
+        .querySelectorAll("tbody tr")
+        .forEach(row => {
 
-        row.classList.remove("error-row");
+            row.classList.remove("error-row");
 
-    });
+        });
 
 
     /*
     Kiểm tra từng hàng
     */
 
-    for(let rowIndex = 0; rowIndex < data.length; rowIndex++){
+    for(
+        let rowIndex = 0;
+        rowIndex < data.length;
+        rowIndex++
+    ){
 
-        let rowValues = [];
-
-
-        /*
-        Kiểm tra từng cột
-        */
-
-        for(let colIndex = 0; colIndex < 4; colIndex++){
-
-            const selected = document.querySelector(
-
-                `input[name="row${rowIndex}_col${colIndex}"]:checked`
-
-            );
+        let rowScores = [];
 
 
-            if(!selected){
+        for(
+            let colIndex = 0;
+            colIndex < 4;
+            colIndex++
+        ){
+
+            const select =
+                document.getElementById(
+                    `select-${rowIndex}-${colIndex}`
+                );
+
+
+            /*
+            Chưa chọn điểm
+            */
+
+            if(select.value === ""){
 
                 complete = false;
 
                 document
-                    .getElementById("row-" + rowIndex)
-                    .classList.add("error-row");
+                    .getElementById(
+                        "row-" + rowIndex
+                    )
+                    .classList
+                    .add("error-row");
 
                 continue;
 
             }
 
 
-            const value = Number(selected.value);
+            const score =
+                Number(select.value);
 
-            rowValues.push(value);
 
-            totals[colIndex] += value;
+            rowScores.push(score);
+
+
+            /*
+            Cộng điểm theo cột
+            */
+
+            totals[colIndex] += score;
 
         }
 
 
         /*
-        Nếu đã đủ 4 cột
-        thì kiểm tra phải đúng 1,2,3,4
+        Kiểm tra đủ 1,2,3,4
         */
 
-        if(rowValues.length === 4){
+        if(rowScores.length === 4){
 
             const sorted =
-                [...rowValues].sort((a,b) => a-b);
+                [...rowScores]
+                .sort((a,b) => a-b);
 
 
-            if(sorted.join(",") !== "1,2,3,4"){
+            if(
+                sorted.join(",")
+                !==
+                "1,2,3,4"
+            ){
 
                 complete = false;
 
                 document
-                    .getElementById("row-" + rowIndex)
-                    .classList.add("error-row");
+                    .getElementById(
+                        "row-" + rowIndex
+                    )
+                    .classList
+                    .add("error-row");
 
             }
 
@@ -567,7 +805,7 @@ function calculate(){
     if(!complete){
 
         alert(
-            "Mỗi hàng phải chấm đủ 4 cột và sử dụng đủ các mức điểm 1, 2, 3, 4."
+            "Bạn cần chấm đủ cả 4 đặc điểm trong mỗi hàng và mỗi hàng phải sử dụng đủ các mức điểm 1, 2, 3, 4."
         );
 
         return;
@@ -575,9 +813,9 @@ function calculate(){
     }
 
 
-    /*
-    Tìm điểm cao nhất để làm tỷ lệ biểu đồ
-    */
+    /* =========================
+       BIỂU ĐỒ
+    ========================= */
 
     const maxScore =
         Math.max(...totals);
@@ -587,23 +825,28 @@ function calculate(){
         totals.map(score => {
 
             if(maxScore === 0){
+
                 return 0;
+
             }
 
-            return (score / maxScore) * 100;
+            return (
+                score / maxScore
+            ) * 100;
 
         });
 
 
-    /*
-    Hiển thị kết quả
-    */
+    /* =========================
+       HIỂN THỊ KẾT QUẢ
+    ========================= */
 
     const result =
         document.getElementById("result");
 
 
-    result.style.display = "block";
+    result.style.display =
+        "block";
 
 
     result.innerHTML = `
@@ -613,6 +856,7 @@ function calculate(){
 
         <div class="total-grid">
 
+
             <div class="total-card">
 
                 <div class="total-title">
@@ -663,12 +907,14 @@ function calculate(){
                 </div>
 
             </div>
+
 
         </div>
 
 
         <div class="chart">
 
+
             <div class="chart-row">
 
                 <div class="chart-label">
@@ -679,8 +925,8 @@ function calculate(){
 
                     <div
                         class="chart-bar"
-                        style="width:${percentages[0]}%">
-                    </div>
+                        style="width:${percentages[0]}%"
+                    ></div>
 
                 </div>
 
@@ -701,8 +947,8 @@ function calculate(){
 
                     <div
                         class="chart-bar"
-                        style="width:${percentages[1]}%">
-                    </div>
+                        style="width:${percentages[1]}%"
+                    ></div>
 
                 </div>
 
@@ -723,8 +969,8 @@ function calculate(){
 
                     <div
                         class="chart-bar"
-                        style="width:${percentages[2]}%">
-                    </div>
+                        style="width:${percentages[2]}%"
+                    ></div>
 
                 </div>
 
@@ -745,8 +991,8 @@ function calculate(){
 
                     <div
                         class="chart-bar"
-                        style="width:${percentages[3]}%">
-                    </div>
+                        style="width:${percentages[3]}%"
+                    ></div>
 
                 </div>
 
@@ -756,17 +1002,15 @@ function calculate(){
 
             </div>
 
+
         </div>
 
     `;
 
 
-    /*
-    Cuộn xuống phần kết quả
-    */
-
     result.scrollIntoView({
-        behavior:"smooth"
+        behavior:"smooth",
+        block:"start"
     });
 
 }
@@ -774,4 +1018,5 @@ function calculate(){
 </script>
 
 </body>
+
 </html>
